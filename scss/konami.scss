@@ -1,0 +1,111 @@
+/*!important !important !important ^^
+*/
+/* ==========================================================================
+   Mixins
+   ========================================================================== */
+
+$base-font-size: 22px;
+
+@function em($target, $context: $base-font-size) {
+	@if $target == 0 { @return 0 }
+	@return $target / $context + 0em;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+@keyframes blink {
+	50% { opacity: 0; }
+}
+@-webkit-keyframes blink {
+	50% { opacity: 0; }
+}
+
+/* ==========================================================================
+   Retro style
+   ========================================================================== */
+
+* {
+	background: #000 !important;
+	font-family: "Courier New", Courier, monospace !important; font-style: normal !important; color: #0f0 !important;
+}
+
+::-webkit-input-placeholder,:-moz-placeholder,::-moz-placeholder,:-ms-input-placeholder {
+	color: #0f0 !important;
+}
+
+.navicon {
+	&,
+	&:after, 
+	&:before {
+		background: #0f0 !important;
+	}
+}
+
+hr {
+	display: none !important;
+}
+
+svg {
+	fill: #0f0 !important;
+}
+
+.header h1 strong:after {
+	display: inline-block !important; margin-right: -.6em !important;
+	content: "|" !important;
+	-webkit-animation: blink 1s steps(1) infinite !important;
+			animation: blink 1s steps(1) infinite !important;
+}
+
+.quote p svg {
+	display: none !important;
+}
+.quote p > span:hover > span:before {
+	background: #000 !important;
+}
+.skills section h1:before {
+	display: none !important;
+}
+.skills {
+	& .s01 { font-size: em(60px) !important; }
+	& .s02 { font-size: em(80px) !important; }
+	& .s03 { font-size: em(120px) !important; }
+	& .s04 { font-size: em(65px) !important; }
+	& .s05 { font-size: em(65px) !important; }
+	& .s06 { font-size: em(45px) !important; }
+	& .s07 { font-size: em(52px) !important; }
+}
+.love img {
+	display: none !important;
+}
+.xp .screenshots {
+	display: none !important;
+}
+.xp section h1:before {
+	display: none !important;
+}
+.contact {
+	& form {
+		& input,
+		& textarea {
+			border-color: #0f0 !important;
+		}
+		& button {
+			&,
+			&:hover,
+			&:focus,
+			&:active {
+				margin-top: 0 !important;
+				border: none !important;
+				background: #0f0 !important;
+				color: #000 !important; text-shadow: none !important;
+			}
+		}
+	}
+	& .s1 { font-size: em(82px) !important; }
+	& .s2 { font-size: em(56px) !important; }
+	& .s3 { font-size: em(57px) !important; }
+	& .s4 { font-size: em(84px) !important; }
+	& .s5 { font-size: em(138px) !important; }
+}
