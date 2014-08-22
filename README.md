@@ -1,4 +1,4 @@
-Twikito.com
+twikito.com
 ===========
 
 Matthieu Bué's personal webfolio
