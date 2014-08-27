@@ -159,6 +159,9 @@ table{
 html,button,input,select,textarea,a {
 	font-family: 'Droid Serif', georgia, serif; font-style: italic; color: $default_color;
 }
+html, body {
+	overflow-x: hidden;
+}
 body {
 	background: $default_bg;
 }

@@ -15,7 +15,13 @@ $(function() {
 	});
 
 	$("img.lazy").lazyload({
+		event  : "woosh",
 		effect : "fadeIn"
+	});
+	$(window).bind("load", function() {
+		var timeout = setTimeout(function() {
+			$("img.lazy").trigger("woosh");
+		}, 2000);
 	});
 
 	// Extract from jQuery Easing v1.3
