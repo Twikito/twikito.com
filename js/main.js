@@ -39,7 +39,7 @@ $(function() {
 		var anchor = this.hash;
 		if(anchor === ""){ return false; }
 		// Add exceptions here
-		$('html,body').stop().animate({'scrollTop':Math.ceil($(anchor).offset().top)},1000,'easeInOutQuint',function(){ window.location.hash = anchor; });
+		$('html,body').stop().animate({'scrollTop':Math.ceil($(anchor).offset().top)},1000,'easeInOutQuint',function(){anchor=="#top"?window.location.hash='':window.location.hash=anchor;});
 	});
 
 	$('.screenshots a').fancybox({
