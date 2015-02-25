@@ -18,9 +18,6 @@ $base-font-size: 22px;
 @keyframes blink {
 	50% { opacity: 0; }
 }
-@-webkit-keyframes blink {
-	50% { opacity: 0; }
-}
 
 /* ==========================================================================
    Retro style
@@ -37,7 +34,7 @@ $base-font-size: 22px;
 
 .navicon {
 	&,
-	&:after, 
+	&:after,
 	&:before {
 		background: #0f0 !important;
 	}
@@ -54,8 +51,7 @@ svg {
 .header h1 strong:after {
 	display: inline-block !important; margin-right: -.6em !important;
 	content: "|" !important;
-	-webkit-animation: blink 1s steps(1) infinite !important;
-			animation: blink 1s steps(1) infinite !important;
+	animation: blink 1s steps(1) infinite !important;
 }
 
 .quote p svg {

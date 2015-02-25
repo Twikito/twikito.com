@@ -2,20 +2,11 @@
    Imports
    ========================================================================== */
 
-@import "compass/support";
-
 /* ==========================================================================
    Variables
    ========================================================================== */
 
-$legacy-support-for-ie6           : true;
-$legacy-support-for-ie7           : true;
-$experimental-support-for-opera   : true;
-$experimental-support-for-mozilla : true;
-
 $base-font-size: 22px;
-
-$default-transition-function: ease-in-out;
 
 $default_bg       : #eee;
 $default_color    : #333;
@@ -88,11 +79,7 @@ li p, li ul{
 }
 textarea, table, td, th, code, pre, samp, div, p {
 	word-wrap: break-word;
-	-webkit-hyphens: auto;
-	   -moz-hyphens: auto;
-		-ms-hyphens: auto;
-		 -o-hyphens: auto;
-			hyphens: auto;
+	hyphens: auto;
 }
 code, pre, samp {
 	white-space: pre-wrap;

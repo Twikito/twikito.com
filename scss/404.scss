@@ -4,21 +4,11 @@
 
 @import "normalize";
 
-@import "compass/support";
-@import "compass/css3/transition";
-
 /* ==========================================================================
    Variables
    ========================================================================== */
 
-$legacy-support-for-ie6           : false;
-$legacy-support-for-ie7           : false;
-$experimental-support-for-opera   : false;
-$experimental-support-for-mozilla : false;
-
 $base-font-size: 22px;
-
-$default-transition-function: ease-in-out;
 
 $default_bg       : #ebebeb;
 $default_color    : #333;
@@ -55,7 +45,7 @@ a {
 
 	& span {
 		display: block;
-		@include single-transition(all,.2s);
+		transition: all .2s ease-in-out;
 	}
 	& .s01 { font-size: 8em;    line-height: .75em; }
 	& .s02 { font-size: 4em;    line-height: .85em; }
@@ -74,7 +64,7 @@ a {
    ========================================================================== */
 
 @media only screen and (min-width: 30em) {
-	
+
 	body{
 		font-size: 1.2em;
 	}
@@ -83,13 +73,13 @@ a {
 	}
 }
 @media only screen and (min-width: 40em) {
-	
+
 	body{
 		font-size: 1.6em;
 	}
 }
 @media only screen and (min-width: 53em) {
-	
+
 	body{
 		font-size: 2.2em;
 	}

@@ -1,5 +1,4 @@
-/*! Unminified version: /scss/main.scss 
-*/
+/*! Unminified version: /scss/main.scss */
 /* ==========================================================================
    Imports
    ========================================================================== */
@@ -7,22 +6,11 @@
 @import "normalize";
 @import "jquery.fancybox";
 
-@import "compass/support";
-@import "compass/css3/transform";
-@import "compass/css3/transition";
-@import "compass/css3/box-sizing";
-
 /* ==========================================================================
    Variables
    ========================================================================== */
 
-$legacy-support-for-ie6           : false;
-$legacy-support-for-ie7           : false;
-$experimental-support-for-opera   : false;
-
 $base-font-size: 22px;
-
-$default-transition-function: ease-in-out;
 
 $default_bg       : #f0f0f6;
 $default_color    : #333339;
@@ -46,38 +34,21 @@ $grey_bg          : #e1e1e7;
    ========================================================================== */
 
 @keyframes quote {
-	0%   { @include translateY(0); }
-	18%  { @include translateY(0); }
-	20%  { @include translateY(-1.5em); }
-	38%  { @include translateY(-1.5em); }
-	40%  { @include translateY(-3em); }
-	58%  { @include translateY(-3em); }
-	60%  { @include translateY(-4.5em); }
-	78%  { @include translateY(-4.5em); }
-	80%  { @include translateY(-6em); }
-	98%  { @include translateY(-6em); }
-	100% { @include translateY(0); }
-}
-@-webkit-keyframes quote {
-	0%   { @include translateY(0); }
-	18%  { @include translateY(0); }
-	20%  { @include translateY(-1.5em); }
-	38%  { @include translateY(-1.5em); }
-	40%  { @include translateY(-3em); }
-	58%  { @include translateY(-3em); }
-	60%  { @include translateY(-4.5em); }
-	78%  { @include translateY(-4.5em); }
-	80%  { @include translateY(-6em); }
-	98%  { @include translateY(-6em); }
-	100% { @include translateY(0); }
+	0%   { transform: translateY(0); }
+	18%  { transform: translateY(0); }
+	20%  { transform: translateY(-1.5em); }
+	38%  { transform: translateY(-1.5em); }
+	40%  { transform: translateY(-3em); }
+	58%  { transform: translateY(-3em); }
+	60%  { transform: translateY(-4.5em); }
+	78%  { transform: translateY(-4.5em); }
+	80%  { transform: translateY(-6em); }
+	98%  { transform: translateY(-6em); }
+	100% { transform: translateY(0); }
 }
 @keyframes load {
-	0%   { @include rotate(-90deg); }
-	100% { @include rotate(270deg); }
-}
-@-webkit-keyframes load {
-	0%   { @include rotate(-90deg); }
-	100% { @include rotate(270deg); }
+	0%   { transform: rotate(-90deg); }
+	100% { transform: rotate(270deg); }
 }
 
 /* ==========================================================================
@@ -134,11 +105,7 @@ li p, li ul{
 }
 textarea, table, td, th, code, pre, samp, div, p {
 	word-wrap: break-word;
-	-webkit-hyphens: auto;
-	   -moz-hyphens: auto;
-		-ms-hyphens: auto;
-		 -o-hyphens: auto;
-			hyphens: auto;
+	hyphens: auto;
 }
 code, pre, samp {
 	white-space: pre-wrap;
@@ -199,7 +166,7 @@ body:before {
 	position: fixed; top: -3.5em; left: 0; right: 0; z-index: 7; display: block; height: 5.5em;
 	background: rgba(0,0,6,.2);
 	content: "";
-	@include skewY(-2deg);
+	transform: skewY(-2deg);
 }
 
 hr {
@@ -214,12 +181,12 @@ hr {
 	&:before {
 		top: 2.75em;
 		background: $green_bg;
-		@include skewY(-2deg);
+		transform: skewY(-2deg);
 	}
 	&:after {
 		bottom: 2.75em;
 		background: $default_bg;
-		@include skewY(-1.5deg);
+		transform: skewY(-1.5deg);
 	}
 }
 article.green + hr:before,
@@ -238,49 +205,35 @@ article.xp section + hr:after {
 nav {
 	position: fixed; top: 0; height: 120%; left: 0; z-index: 8; display: block; width: 11.5em; padding-top: 3em;
 	background: rgba(0,0,0,.9);
-	@include translate3d(0,0,0); /* Hardware acceleration */
-	@include translateX(-11.5em);
-	@include single-transition(all,.2s);
+	transform: translate3d(0,0,0); /* Hardware acceleration */
+	transform: translateX(-11.5em);
+	transition: all .2s ease-in-out;
 	& a {
 		position: relative; display: block; width: 11.5em; height: 3em; 
 		text-decoration: none;
-		@include translateX(-100%);
+		transform: translateX(-100%);
 	}
 	/* -__-v */
 	& a:nth-child(1) {
-		-webkit-transition: all .2s ease-out, -webkit-transform .2s ease-out 100ms;
-		    -ms-transition: all .2s ease-out,     -ms-transform .2s ease-out 100ms;
-		        transition: all .2s ease-out,         transform .2s ease-out 100ms;
+		transition: all .2s ease-out, transform .2s ease-out 100ms;
 	}
 	& a:nth-child(2) {
-		-webkit-transition: all .2s ease-out, -webkit-transform .2s ease-out 140ms;
-		    -ms-transition: all .2s ease-out,     -ms-transform .2s ease-out 140ms;
-		        transition: all .2s ease-out,         transform .2s ease-out 140ms;
+		transition: all .2s ease-out, transform .2s ease-out 140ms;
 	}
 	& a:nth-child(3) {
-		-webkit-transition: all .2s ease-out, -webkit-transform .2s ease-out 180ms;
-		    -ms-transition: all .2s ease-out,     -ms-transform .2s ease-out 180ms;
-		        transition: all .2s ease-out,         transform .2s ease-out 180ms;
+		transition: all .2s ease-out, transform .2s ease-out 180ms;
 	}
 	& a:nth-child(4) {
-		-webkit-transition: all .2s ease-out, -webkit-transform .2s ease-out 220ms;
-		    -ms-transition: all .2s ease-out,     -ms-transform .2s ease-out 220ms;
-		        transition: all .2s ease-out,         transform .2s ease-out 220ms;
+		transition: all .2s ease-out, transform .2s ease-out 220ms;
 	}
 	& a:nth-child(5) {
-		-webkit-transition: all .2s ease-out, -webkit-transform .2s ease-out 260ms;
-		    -ms-transition: all .2s ease-out,     -ms-transform .2s ease-out 260ms;
-		        transition: all .2s ease-out,         transform .2s ease-out 260ms;
+		transition: all .2s ease-out, transform .2s ease-out 260ms;
 	}
 	& a:nth-child(6) {
-		-webkit-transition: all .2s ease-out, -webkit-transform .2s ease-out 300ms;
-		    -ms-transition: all .2s ease-out,     -ms-transform .2s ease-out 300ms;
-		        transition: all .2s ease-out,         transform .2s ease-out 300ms;
+		transition: all .2s ease-out, transform .2s ease-out 300ms;
 	}
 	& a:nth-child(7) {
-		-webkit-transition: all .2s ease-out, -webkit-transform .2s ease-out 340ms;
-		    -ms-transition: all .2s ease-out,     -ms-transform .2s ease-out 340ms;
-		        transition: all .2s ease-out,         transform .2s ease-out 340ms;
+		transition: all .2s ease-out, transform .2s ease-out 340ms;
 	}
 	&:hover a {
 		opacity: .5;
@@ -303,7 +256,7 @@ nav {
 
 .navicon {
 	position: relative;
-	&:after, 
+	&:after,
 	&:before {
 		position: absolute; z-index: -1;
 		content: "";
@@ -315,12 +268,12 @@ nav {
 		top: .55em;
 	}
 	&,
-	&:after, 
+	&:after,
 	&:before {
 		right: 0; display: block; width: 2em; height: .3em;
 		border-radius: .2em;
 		background: #fff;
-		@include single-transition(all,.2s);
+		transition: all .2s ease-in-out;
 	}
 }
 
@@ -337,24 +290,24 @@ nav {
 		content: "";
 	}
 	&:checked + label .navicon {
-		@include transform(scale(.7) rotate(-180deg));
+		transform: scale(.7) rotate(-180deg);
 		&:before,
-		&:after {   
+		&:after {
 			top: 0; right: .2em; width: 1.2em;
 		}
 		&:before {
-			@include rotate(-35deg);
-			@include transform-origin(right,top);
+			transform: rotate(-35deg);
+			transform-origin: right top;
 		}
 		&:after {
-			@include rotate(35deg);
-			@include transform-origin(right,bottom);
+			transform: rotate(35deg);
+			transform-origin: right bottom;
 		}
 	}
 	&:checked ~ nav {
 		&,
 		& a {
-			@include translateX(0);
+			transform: translateX(0);
 		}
 	}
 }
@@ -383,7 +336,7 @@ nav {
 	& p svg {
 		width: 1em; height: 1em;
 		fill: $grey_color;
-		@include single-transition(all,.2s);
+		transition: all .2s ease-in-out;
 	}
 	& p a:hover svg,
 	& p a:focus svg {
@@ -406,7 +359,7 @@ article {
 		& a {
 			display: block; width: 3em; height: 3em; margin: 0; padding: 0;
 			opacity: .2;
-			@include single-transition(all,.2s);
+			transition: all .2s ease-in-out;
 			&:hover,
 			&:focus {
 				opacity: 1;
@@ -441,8 +394,7 @@ article {
 		& > span > span {
 			display: block;
 			text-align: left;
-			-webkit-animation: quote 10s ease-in-out infinite;
-					animation: quote 10s ease-in-out infinite;
+			animation: quote 10s ease-in-out infinite;
 		}
 		& > span:hover > span:before {
 			position: relative; z-index: 1; display: block; margin-bottom: -1.5em;
@@ -463,9 +415,9 @@ article {
 		}
 		& header {
 			text-align: center;
-			
+
 			& span {
-				display: block;
+				position: relative; z-index: 1; display: block;
 				line-height: .85em;
 			}
 		}
@@ -474,7 +426,7 @@ article {
 			font-size: 1em; text-transform: uppercase; text-align: center;
 		}
 		& h1:before {
-			position: absolute; top: 50%; left: 50%; z-index: -1; display: block; width: 10em; height: 10em; margin: -5em 0 0 -5em;
+			position: absolute; top: 50%; left: 50%; z-index: 0; display: block; width: 10em; height: 10em; margin: -5em 0 0 -5em;
 			border-radius: 50%;
 			background: #fff;
 			content: "";
@@ -555,7 +507,7 @@ article {
 				background: rgba(0,0,0,.7) center no-repeat url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIGZpbGw9IiNmZmYiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCI+CjxwYXRoIGQ9Ik05OTIuMjYyIDg3MS4zOTZsLTI0Mi41NTItMjA2LjI5NGMtMjUuMDc0LTIyLjU2Ni01MS44OS0zMi45MjYtNzMuNTUyLTMxLjkyNiA1Ny4yNTYtNjcuMDY4IDkxLjg0Mi0xNTQuMDc4IDkxLjg0Mi0yNDkuMTc2IDAtMjEyLjA3OC0xNzEuOTIyLTM4NC0zODQtMzg0LTIxMi4wNzYgMC0zODQgMTcxLjkyMi0zODQgMzg0IDAgMjEyLjA3OCAxNzEuOTIyIDM4NCAzODQgMzg0IDk1LjA5OCAwIDE4Mi4xMDgtMzQuNTg2IDI0OS4xNzYtOTEuODQ0LTEgMjEuNjYyIDkuMzYgNDguNDc4IDMxLjkyNiA3My41NTJsMjA2LjI5NCAyNDIuNTUyYzM1LjMyMiAzOS4yNDYgOTMuMDIyIDQyLjU1NCAxMjguMjIgNy4zNTZzMzEuODkyLTkyLjg5OC03LjM1NC0xMjguMjJ6TTM4NCA2NDBjLTE0MS4zODQgMC0yNTYtMTE0LjYxNi0yNTYtMjU2czExNC42MTYtMjU2IDI1Ni0yNTYgMjU2IDExNC42MTYgMjU2IDI1Ni0xMTQuNjE0IDI1Ni0yNTYgMjU2ek00NDggMTkyaC0xMjh2MTI4aC0xMjh2MTI4aDEyOHYxMjhoMTI4di0xMjhoMTI4di0xMjhoLTEyOHoiIC8+Cjwvc3ZnPg==);
 				background-size: 15%;
 				content: "";
-				@include single-transition(all,.2s);
+				transition: all .2s ease-in-out;
 			}
 			&:first-child:before {
 				right: -100%;
@@ -584,7 +536,7 @@ article {
 		& svg {
 			width: 100%; height: 100%;
 			fill: $green_color;
-			@include single-transition(all,.2s);
+			transition: all .2s ease-in-out;
 		}
 		& a:hover svg,
 		& a:focus svg {
@@ -605,8 +557,8 @@ article {
 			border: 3px solid #fff;
 			background: #fff;
 			outline: 0;
-			@include single-transition(all,.2s);
-			@include box-sizing(border-box);
+			transition: all .2s ease-in-out;
+			box-sizing: border-box;
 			&:focus {
 				border-color: $green_bg;
 			}
@@ -619,7 +571,7 @@ article {
 			border: none; border-bottom: 3px solid darken($green_bg, 10%); outline: none;
 			background: $green_bg;
 			line-height: 1em; color: #fff; text-decoration: none; text-shadow: 0 -2px darken($green_bg, 10%);
-			@include single-transition(all,.1s);
+			transition: all .1s ease-in-out;
 			&:hover,
 			&:focus {
 				margin-top: 3px;
@@ -636,8 +588,7 @@ article {
 			text-align: center;
 			& img {
 				position: relative; width: em(55px); height: em(55px);
-				-webkit-animation: load 1s ease-in-out infinite;
-				        animation: load 1s ease-in-out infinite;
+				animation: load 1s ease-in-out infinite;
 			}
 		}
 	}
@@ -648,7 +599,7 @@ article {
 	& span {
 		display: block;
 		line-height: .85em;
-		@include single-transition(all,.2s);
+		transition: all .2s ease-in-out;
 	}
 	& span:nth-child(even) {
 		color: #aaa;
@@ -675,8 +626,8 @@ footer {
 		position: absolute; top: 0; left: 0; right: 0; z-index: -1; display: block; height: 15em; margin-bottom: -3em;
 		background: $grey_bg;
 		content: "";
-		@include skewY(-2deg);
-		@include transform-origin(right,top);
+		transform: skewY(-2deg);
+		transform-origin: right top;
 	}
 	& span {
 		margin: 0 .5em;
@@ -685,7 +636,7 @@ footer {
 		position: absolute; top: 0; left: 50%; display: block; width: 2em; height: 2em; margin-left: -2em; padding: 1em;
 		border-radius: 50%;
 		background: $grey_bg;
-		@include single-transition(background,.2s);
+		transition: background .2s ease-in-out;
 		&:hover,
 		&:focus {
 			background: #fff;
@@ -701,8 +652,8 @@ footer {
    Media Queries
    ========================================================================== */
 
-@media only screen and (min-width: 25em) {
-	
+@media only screen and (min-width: 26em) {
+
 	body{
 		font-size: 1.8em;
 	}
@@ -712,7 +663,7 @@ footer {
 	nav {
 		width: 3em;
 		background: rgba(0,0,0,.8);
-		@include translateX(-3em);
+		transform: translateX(-3em);
 		& a {
 			width: 3em;
 		}
@@ -727,7 +678,7 @@ footer {
 }
 
 @media only screen and (min-width: 38em) {
-	
+
 	body{
 		font-size: 2em;
 	}
@@ -737,7 +688,7 @@ footer {
 			position: absolute; top: 0; bottom: 0; left: 100%; display: block; width: 0; overflow: hidden;
 			background: rgba(0,0,0,.7);
 			text-indent: 1em;
-			@include single-transition(all,.2s);
+			transition: all .2s ease-in-out;
 		}
 	}
 	[id=navcheck]:checked ~ nav a:hover span,
@@ -746,7 +697,7 @@ footer {
 	}
 	[id=navcheck]:not(:checked) + label:hover ~ nav,
 	[id=navcheck]:not(:checked):focus ~ nav {
-		@include translateX(-2.5em);
+		transform: translateX(-2.5em);
 	}
 
 	article > header {
@@ -759,7 +710,7 @@ footer {
 }
 
 @media only screen and (min-width: 50em) {
-	
+
 	body{
 		font-size: 2.2em;
 	}
@@ -786,17 +737,17 @@ footer {
 				& hr {
 					height: 0;
 					opacity: 0;
-					@include scaleY(0);
-					@include single-transition(all,.3s);
+					transform: scaleY(0);
+					transition: all .3s ease-in-out;
 				}
 				& section {
 					background: transparent;
-					@include single-transition(all,.3s);
+					transition: all .3s ease-in-out;
 				}
 				& section label {
 					margin-left: .2em;
 					vertical-align: middle;
-					@include single-transition(all,.15s);
+					transition: all .15s ease-in-out;
 				}
 				& section label:hover,
 				& section label:focus {
@@ -804,14 +755,14 @@ footer {
 				}
 				& section div div {
 					max-height: 0;
-					@include single-transition(all,.3s);
+					transition: all .3s ease-in-out;
 				}
 				& section h1:before {
 					position: relative; display: inline-block; width: 1.1em;
 					background: center no-repeat url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjI4IiBoZWlnaHQ9IjE3LjciIHZpZXdCb3g9IjAgMCAyOCAxNy43IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHBhdGggZmlsbD0iI2E1YTViMCIgZD0iTTE0LDE3LjdjLTAuNiwwLTEuMi0wLjItMS42LTAuN0wwLjcsNS4zQzAuMiw0LjgsMCw0LjMsMCwzLjdDMCwzLDAuMiwyLjUsMC43LDJMMiwwLjdDMi41LDAuMiwzLDAsMy43LDBjMC42LDAsMS4yLDAuMiwxLjYsMC43TDE0LDkuNGw4LjctOC43YzAuNS0wLjQsMS0wLjcsMS42LTAuN0MyNSwwLDI1LjYsMC4yLDI2LDAuN0wyNy4zLDJDMjcuOCwyLjUsMjgsMywyOCwzLjdzLTAuMiwxLjItMC43LDEuNkwxNS42LDE3QzE1LjIsMTcuNCwxNC43LDE3LjcsMTQsMTcuN3oiLz48L3N2Zz4=);
 					vertical-align: middle;
 					content: "\00a0"; // space
-					@include single-transition(all,.3s);
+					transition: all .3s ease-in-out;
 				}
 			}
 		}
@@ -823,7 +774,7 @@ footer {
 		& input:checked + div {
 			& hr {
 				height: 5em;
-				@include scaleY(1);
+				transform: scaleY(1);
 				opacity: 1;
 			}
 			& section {
@@ -833,7 +784,7 @@ footer {
 				max-height: 50em;
 			}
 			& section h1:before {
-				@include rotate(-180deg);
+				transform: rotate(-180deg);
 			}
 		}
 	}
