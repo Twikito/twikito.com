@@ -114,7 +114,7 @@ $(function() {
 	}
 	$(document).ready(function() {
 		konami(function() {
-			$('head').append("<link rel='stylesheet' href='css/konami.css?140815'>");
+			$('head').append("<link rel='stylesheet' href='css/konami.css?150330'>");
 		});
 	});
 

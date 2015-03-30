@@ -43,14 +43,14 @@ a {
 	position: absolute; left: 3%; top: 5%; display: inline-block;
 	color: $default_color; text-align: center; font-family: "museo-sans-condensed", arial, sans-serif; font-style: normal; font-weight: normal; text-transform: uppercase; text-decoration: none;
 
-	& span {
+	span {
 		display: block;
 		transition: all .2s ease-in-out;
 	}
-	& .s01 { font-size: 8em;    line-height: .75em; }
-	& .s02 { font-size: 4em;    line-height: .85em; }
-	& .s03 { font-size: 1.28em; line-height: 1.2em; }
-	& .s04 { font-size: 2.07em; line-height: .85em; }
+	.s01 { font-size: 8em;    line-height: .75em; }
+	.s02 { font-size: 4em;    line-height: .85em; }
+	.s03 { font-size: 1.28em; line-height: 1.2em; }
+	.s04 { font-size: 2.07em; line-height: .85em; }
 
 	&:hover .s04,
 	&:focus .s04 {
