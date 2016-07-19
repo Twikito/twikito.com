@@ -35,12 +35,12 @@ $(function() {
 			success : function(data) {
 				var ans;
 				switch(data){
-					case "error_name"	:	ans = "Votre nom est incorrect !"; break;
-					case "error_email"	:	ans = "Votre adresse mail est vide ou incorrect !"; break;
-					case "error_bot"	:	ans = "Erreur bot !"; break;
-					case "error_msg"	:	ans = "Veuillez renseigner votre message !"; break;
-					case "error_send"	:	ans = "Erreur lors de l'envoi. Veuillez réessayer !"; break;
-					case "ok"			:	ans = "Message envoyé !"; $("#form")[0].reset(); break;
+					case "error_name"	:	ans = "Votre nom est incorrect"; break;
+					case "error_email"	:	ans = "Votre adresse mail est vide ou incorrect"; break;
+					case "error_bot"	:	ans = "Erreur bot"; break;
+					case "error_msg"	:	ans = "Veuillez renseigner votre message"; break;
+					case "error_send"	:	ans = "Erreur lors de l'envoi. Veuillez réessayer"; break;
+					case "ok"			:	ans = "Message envoyé. <br>Vous en recevrez une copie."; $("#form")[0].reset(); break;
 					default 			:	ans = "Oups !"; break;
 				}
 				$('#form .ans-inner').html(ans);

@@ -9,8 +9,8 @@ $remip    = $_SERVER['REMOTE_ADDR'];
 if(!preg_match("/^[a-zA-ZàáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ\s]+$/i",$name)){
 	echo 'error_name';
 }else{
-	if(!preg_match("/^([0-9a-zA-Z]+[-._+&])*[0-9a-zA-Z]+@([-0-9a-zA-Z]+[.])+[a-zA-Z]{2,6}$/i",$email)){
-		echo 'error_email'; 
+	if(!preg_match("/^([0-9a-zA-Z]+[-._+&])*[0-9a-zA-Z]+@([-0-9a-zA-Z]+[.])+[a-zA-Z]{2,10}$/i",$email)){
+		echo 'error_email';
 	}else{
 		if($botkick != ""){
 			echo 'error_bot';
@@ -28,6 +28,7 @@ if(!preg_match("/^[a-zA-ZàáâãäçèéêëìíîïñòóôõöùúûüýÿÀ�
 				$headers  = 'MIME-Version: 1.0' . "\r\n";
 				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 				$headers .= 'From:'.$name.' '.'<'.$email.'>' . "\r\n";
+				$headers .= 'Cc:'.$name.' '.'<'.$email.'>' . "\r\n";
 
 				// envoi du mail
 				if(mail("hello@twikito.com","[twikito.com] ".$name,$body,$headers)){
