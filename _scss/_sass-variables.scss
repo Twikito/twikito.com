@@ -1,0 +1,100 @@
+/*  ==========================================================================
+   SCSS variables
+    ========================================================================== */
+
+// Colors
+
+$white                  : white;
+$softwhite              : #f0f0f6;
+$darkgrey               : #333341;
+$limegreen              : #49b74a;
+$seagreen               : #00d084;
+$darkgreen              : darken($seagreen,25%);
+$lightgrey              : lighten($darkgrey,67%);
+$midgrey                : lighten($darkgrey,21%);
+
+$selection-color        : #b3fcd4;
+
+//--
+
+$default_bg             : $softwhite;
+$default-color          : $darkgrey;
+$default_hl_color       : $limegreen;
+
+$green-block-bg         : $seagreen;
+$green-block-color      : $darkgreen;
+
+$grey-block-bg          : $lightgrey;
+$grey-block-color       : $midgrey;
+
+$default-button-bg      : $seagreen;
+$default-button-color   : $darkgreen;
+
+$default-input-bg       : $lightgrey;
+$default-input-color    : $midgrey;
+
+
+// Sizes
+
+$defaut-font-size       : 1em;
+$default-line-height    : 1.5;
+
+$font-classes           : ((
+	'name'              : 'smaller',
+	'size'              : .6875 // 11
+),(
+	'name'              : 'small',
+	'size'              : .825 // 13.2
+),(
+	'name'              : 'big',
+	'size'              : 1.375 // 22
+),(
+	'name'              : 'bigger',
+	'size'              : 1.625 // 26
+),(
+	'name'              : 'biggest',
+	'size'              : 1.875 // 30
+));
+
+
+// Responsive
+
+$media-breakpoint-sm    : 26rem;
+$media-breakpoint-md    : 38rem;
+$media-breakpoint-lg    : 50rem;
+$media-breakpoint-xl    : 64rem;
+
+$media-ratio-xs         : 1.6;
+$media-ratio-sm         : 1.6;
+$media-ratio-md         : 1.8;
+$media-ratio-lg         : 2.0;
+$media-ratio-xl         : 2.2;
+
+
+// Fonts
+
+$default-font-family    : 'Droid Serif', georgia, serif;
+$default-font-weight    : 400;
+$default-font-style     : italic;
+
+$title-font-family      : 'PT Sans Narrow', arial, sans-serif;
+$title-font-weight      : 700;
+$title-font-style       : normal;
+
+
+// Misc
+
+$wrapper-width          : 53em;
+$article-margin         : 6%;
+
+$default-duration       : .25s;
+@import "vendor/ceaser/ceaser";
+$default-timing-function: cubic-bezier(unquote($easeInOutQuart));
+
+$logo-ratio             : .7;
+
+$navitem-size           : 3em;
+$navitem-delay          : 40ms;
+
+$quote-duration         : 10s;
+$quote-timing-function  : cubic-bezier(0.3, 0, 0.32, 1.27);

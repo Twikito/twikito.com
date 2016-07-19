@@ -1,0 +1,26 @@
+/* ==========================================================================
+   Main layout
+   ========================================================================== */
+
+html, body {
+	overflow-x: hidden;
+}
+body {
+	background-color: $default_bg;
+}
+
+.wrapper {
+	max-width: $wrapper-width; margin-left: auto; margin-right: auto; padding-left: 1em; padding-right: 1em;
+	@media (min-width: $media-breakpoint-sm) {
+		padding-left: 3.5em; padding-right: 3.5em;
+	}
+}
+
+p:last-child, ul:last-child, ol:last-child, dl:last-child, blockquote:last-child, pre:last-child, table:last-child {
+	margin-bottom: 0;
+}
+
+li p, li ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}

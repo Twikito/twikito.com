@@ -1,0 +1,28 @@
+hr {
+	position: relative; z-index: -5; display: block; height: 5em; margin: 0;
+	border: 0;
+	background: darken($green-block-bg, 10%);
+	&::before,
+	&::after {
+		position: absolute; z-index: 1; left: 0; right: 0; display: block; height: 5em;
+		content: '';
+	}
+	&::before {
+		top: 2.75em;
+		background: $green-block-bg;
+		transform: skewY(-2deg);
+	}
+	&::after {
+		bottom: 2.75em;
+		background: $default_bg;
+		transform: skewY(-1.5deg);
+	}
+}
+article.green + hr::before,
+article.xp section + hr::before {
+	bottom: 2.75em; top: auto;
+}
+article.green + hr::after,
+article.xp section + hr::after {
+	top: 2.75em; bottom: auto;
+}

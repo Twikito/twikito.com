@@ -1,0 +1,49 @@
+[id='form'] {
+	position: relative; margin: 10% 0 0;
+	@media (min-width: $media-breakpoint-lg) {
+		float: left; width: 45%; margin: 0;
+	}
+	input,
+	textarea {
+		width: 100%; margin: 0 0 1em; padding: 1.5em 1em; box-sizing: border-box;
+		border: 3px solid #fff; outline: 0;
+		background: #fff;
+		&:focus {
+			border-color: $default-button-bg;
+		}
+	}
+	textarea {
+		height: 10em;
+		vertical-align: top;
+	}
+	button {
+		display: block; width: 100%; margin: 0; padding: .75em 0;
+		border: none; box-shadow: 0 .125em 0 0 darken($default-button-bg, 10%); outline: none;
+		background: $default-button-bg;
+		line-height: 1em; color: #fff; text-decoration: none; text-shadow: 0 -.075em darken($default-button-bg, 10%);
+		&:hover,
+		&:focus {
+			transform: translateY(.125em);
+			box-shadow: 0 0 0 0 darken($default-button-bg, 10%);
+			text-shadow: 0 0 darken($default-button-bg, 10%);
+		}
+		&:active {
+			background: darken($default-button-bg, 5%);
+		}
+	}
+	.ans-frame {
+		position: absolute; top: 0; right: 0; bottom: -.25em; left: 0; display: none;
+	}
+	.ans-bloc {
+		position: absolute; top: 0; right: 0; bottom: 0; left: 0; display: flex;
+		background: rgba($default_bg, .8);
+		text-align: center;
+	}
+	.ans-inner {
+		margin: auto;
+		svg {
+			width: 4em; height: 4em;
+			animation: load 1s linear infinite;
+		}
+	}
+}

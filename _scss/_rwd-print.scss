@@ -1,0 +1,62 @@
+/* ==========================================================================
+   Print Media Query
+   ========================================================================== */
+
+@media print {
+	body {
+		font-size: 1.2em;
+	}
+	[role='banner'],
+	article {
+		padding: 5% 0;
+	}
+	body,
+	body::before,
+	article.green,
+	.skills section h3::before,
+	footer::before {
+		background: none;
+	}
+	.xp input + div section {
+		&,
+		h3 {
+			background: none;
+		}
+	}
+	html,
+	a,
+	[role='banner'] strong,
+	[role='banner'] h2,
+	article.green,
+	.contact span:nth-child(even) {
+		color: #000;
+	}
+	[role='banner'] p svg,
+	.social p svg {
+		fill: #000;
+	}
+	.xp .wrapper {
+		max-width: 53em;
+	}
+	.xp input + div section h3 {
+		padding-left: 0;
+	}
+	hr,
+	nav,
+	[id='navcheck']:checked ~ nav,
+	.navicon,
+	form,
+	footer a.totop {
+		display: none;
+	}
+	@page {
+		margin: 0.5cm;
+	}
+	p,h2,h3 {
+		orphans: 3;
+		widows: 3;
+	}
+	h2,h3 {
+		page-break-after: avoid;
+	}
+}

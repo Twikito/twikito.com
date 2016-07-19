@@ -1,0 +1,87 @@
+.navicon {
+	position: relative; margin: auto;
+	&::after,
+	&::before {
+		position: absolute; z-index: -1;
+		content: '';
+	}
+	&::after {
+		top: $navitem-size * -.20;
+	}
+	&::before {
+		top: $navitem-size * .20;
+	}
+	&,
+	&::after,
+	&::before {
+		right: 0; display: block; width: $navitem-size * .66; height: .2em;
+		border-radius: .05em;
+		background: #fff;
+		transition: $default-duration $default-timing-function;
+	}
+}
+
+[id='navcheck'] {
+	position: fixed; top: 0; left: 0; z-index: 9;
+	opacity: 0;
+	& + label {
+		&::after {
+			position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 8;
+			background: rgba($darkgrey,.4);
+			content: ''; opacity: 0; pointer-events: none;
+			transition: opacity $default-duration $default-timing-function;
+			@media (min-width: $media-breakpoint-sm) {
+				display: none;
+				content: none;
+			}
+		}
+		.area {
+			position: fixed; top: 0; left: 0; z-index: 10; display: flex; width: $navitem-size; height: $navitem-size;
+			cursor: pointer;
+		}
+	}
+	&:checked {
+		& + label {
+			&::after {
+				opacity: 1; pointer-events: auto;
+			}
+			.navicon {
+				transform: scale(.7) rotate(-180deg);
+				&::before,
+				&::after {
+					top: 0; right: .2em; width: 1.2em;
+				}
+				&::before {
+					transform: rotate(-35deg) translate(.05em,.05em);
+					transform-origin: right top;
+				}
+				&::after {
+					transform: rotate(35deg) translate(.05em,-.05em);
+					transform-origin: right bottom;
+				}
+			}
+		}
+		& ~ nav {
+			&,
+			a {
+				transform: translateX(0);
+			}
+			a {
+				@media (min-width: $media-breakpoint-md) {
+					&:hover,
+					&:focus {
+						span {
+							width: 8.5em;
+						}
+					}
+				}
+			}
+		}
+	}
+	@media (min-width: $media-breakpoint-md) {
+		&:not(:checked) + label:hover ~ nav,
+		&:not(:checked):focus ~ nav {
+			transform: translateX(-$navitem-size + .5em);
+		}
+	}
+}

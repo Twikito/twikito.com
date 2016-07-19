@@ -1,0 +1,45 @@
+.contact {
+	.wrapper {
+		@media (min-width: $media-breakpoint-lg) {
+			display: flex;
+			flex-flow: row-reverse nowrap; align-items: center;
+			& > * {
+				flex: 1;
+			}
+		}
+	}
+	.m {
+		text-align: center;
+		@media (min-width: $media-breakpoint-lg) {
+			margin-left: 10%;
+		}
+		a {
+			display: inline-block;
+			text-decoration: none; text-align: center;
+			&:hover,
+			&:focus {
+				span {
+					&:nth-child(even) {
+						color: $green-block-bg;
+					}
+					&:nth-child(odd) {
+						color: darken($green-block-bg, 10%);
+					}
+				}
+			}
+		}
+		span {
+			display: block;
+			line-height: .85em; text-align: center;
+			transition: $default-duration $default-timing-function;
+			&:nth-child(even) {
+				color: #aaa;
+			}
+		}
+		.s1 { font-size: (11/$media-ratio-xl)*1em; }
+		.s2 { font-size: (7.3/$media-ratio-xl)*1em; }
+		.s3 { font-size: (7.9/$media-ratio-xl)*1em; }
+		.s4 { font-size: (11/$media-ratio-xl)*1em; }
+		.s5 { font-size: (15.7/$media-ratio-xl)*1em; }
+	}
+}

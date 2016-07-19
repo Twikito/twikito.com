@@ -1,0 +1,65 @@
+.skills {
+	section {
+		margin-bottom: $article-margin;
+		&:last-child {
+			margin-bottom: 0;
+			h3 {
+				margin: 3em 0;
+				@media (min-width: $media-breakpoint-xl) {
+					margin: 1.5em 0;
+				}
+			}
+		}
+		@media (min-width: $media-breakpoint-xl) {
+			display: flex;
+			flex-wrap: nowrap;
+			&:nth-child(odd) {
+				flex-direction: row-reverse;
+				header {
+					text-align: right;
+				}
+			}
+			&:nth-child(even) {
+				flex-direction: row;
+				header {
+					text-align: left;
+				}
+			}
+		}
+		header {
+			flex: 1;
+			text-align: center;
+			@media (min-width: $media-breakpoint-xl) {
+
+			}
+			span {
+				position: relative; z-index: 1; display: block;
+				line-height: .85em;
+			}
+		}
+		p {
+			flex: 2;
+			@media (min-width: $media-breakpoint-xl) {
+
+			}
+		}
+		h3 {
+			position: relative; display: inline-block; margin: 1.5em 0; padding:0;
+			font-size: 1em; text-transform: uppercase; text-align: center;
+			&::before {
+				position: absolute; top: 50%; left: 50%; z-index: 0; display: block; width: 10em; height: 10em; margin: -5em 0 0 -5em;
+				border-radius: 50%;
+				background: #fff;
+				content: '';
+			}
+		}
+	}
+	.s01 { font-size: (8.1/$media-ratio-xl)*1em; }
+	.s02 { font-size: (10.5/$media-ratio-xl)*1em; }
+	.s03 { font-size: (16.3/$media-ratio-xl)*1em; }
+	.s04 { font-size: (8.3/$media-ratio-xl)*1em; }
+	.s05 { font-size: (6.2/$media-ratio-xl)*1em; }
+	.s06 { font-size: (8.9/$media-ratio-xl)*1em; }
+	.s07 { font-size: (6.5/$media-ratio-xl)*1em; }
+	.s08 { font-size: (6.3/$media-ratio-xl)*1em; }
+}

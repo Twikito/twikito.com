@@ -1,0 +1,28 @@
+.love {
+	.wrapper {
+		@media (min-width: $media-breakpoint-lg) {
+			display: flex;
+			flex-flow: row nowrap; align-items: center;
+		}
+	}
+	figure {
+		width: 35%; margin: 0 auto 1em;
+		@media (min-width: $media-breakpoint-md) {
+			width: 25%;
+		}
+		@media (min-width: $media-breakpoint-lg) {
+			margin: 0 5% 0 0;
+			flex: 1;
+		}
+	}
+	p {
+		line-height: 1.6em; margin: 0;
+		@media (min-width: $media-breakpoint-lg) {
+			flex: 3;
+		}
+		span {
+			display: inline-block; margin: 0;
+			line-height: 1em;
+		}
+	}
+}

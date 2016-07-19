@@ -1,0 +1,47 @@
+article {
+	position: relative; padding: $article-margin 0;
+	&.green {
+		background: $green-block-bg;
+		color: $green-block-color;
+	}
+	&:target {
+		& > header a {
+			opacity: 1;
+		}
+	}
+	& > header {
+		display: none;
+		@media (min-width: $media-breakpoint-md) {
+			position: absolute; top: 0; left: 0; display: block; width: $navitem-size; height: $navitem-size;
+		}
+		h2 {
+			width: $navitem-size; height: $navitem-size; margin: 0; padding: 0;
+			font-size: 1em;
+		}
+		a {
+			display: block; width: $navitem-size; height: $navitem-size; margin: 0; padding: 0;
+			opacity: .2;
+			&::after {
+				position: absolute; top: 50%; right: -.125em;
+				transform: translateY(-50%);
+				font-size: 1.25em; font-family: $default-font-family; font-weight: $default-font-weight;
+				content: "#"; opacity: 0;
+				transition: $default-duration $default-timing-function;
+			}
+			&:hover,
+			&:focus {
+				opacity: 1;
+				&::after {
+					opacity: 1;
+				}
+			}
+		}
+		svg {
+			width: $navitem-size * .5; height: $navitem-size * .5; margin: $navitem-size * .25;
+			fill: $default_color;
+		}
+		&.green svg {
+			fill: $green-block-color;
+		}
+	}
+}

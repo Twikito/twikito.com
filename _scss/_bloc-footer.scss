@@ -1,0 +1,31 @@
+footer {
+	position: relative; padding: 2em 0 1em; overflow: hidden;
+	text-align: center;
+	&::before {
+		position: absolute; top: 0; left: 0; right: 0; z-index: -1; display: block; height: 15em; margin-bottom: -3em;
+		background: $grey-block-bg;
+		content: '';
+		transform: skewY(-2deg);
+		transform-origin: right top;
+	}
+	span {
+		margin: 0 .25em;
+	}
+	a.totop {
+		position: absolute; top: 0; left: 50%; display: block; width: 2em; height: 2em; padding: 1em;
+		transform: translateX(-50%);
+		border-radius: 50%;
+		background: $grey-block-bg;
+		&:hover,
+		&:focus {
+			background: $white;
+		}
+		@media (min-width: $media-breakpoint-xl) {
+			padding: 1.5em;
+		}
+	}
+	svg {
+		width: 2em;  height: 2em;
+		fill: $default_color;
+	}
+}

@@ -1,0 +1,45 @@
+body::before {
+	position: fixed; top: -3.5em; left: 0; right: 0; z-index: 7; display: block; height: 6em;
+	background: rgba($darkgrey,.25);
+	content: '';
+	transform: skewY(-2deg);
+	@media (min-width: $media-breakpoint-xl) {
+		height: 5em;
+	}
+}
+
+[role='banner'] {
+	padding: 16% 0;
+	text-align: center;
+	@media (min-width: $media-breakpoint-lg) {
+		padding: 11% 0;
+	}
+	[id='logo'] {
+		width: ((49/$media-ratio-xl)*1em)*$logo-ratio; height: ((45/$media-ratio-xl )*1em)*$logo-ratio; margin-bottom: 1.5em;
+	}
+	h1 {
+		margin: 0;
+		font-size: 3em; line-height: 1em;
+	}
+	strong {
+		display: block;
+		font-weight: normal; color: $default_hl_color;
+	}
+	h2 {
+		margin: -.8em 0 0;
+		font-family: $default-font-family; font-style: $default-font-style; font-weight: $default-font-weight; line-height: 3em; text-transform: none; color: $grey-block-color;
+	}
+	a {
+		display: inline-block; width: .875em; height: .875em; margin: 0 .25em; padding: 0;
+		&:hover,
+		&:focus {
+			svg {
+				fill: $default_hl_color;
+			}
+		}
+	}
+	p svg {
+		fill: $grey-block-color;
+		transition: $default-duration $default-timing-function
+	}
+}

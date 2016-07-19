@@ -1,0 +1,29 @@
+.talks {
+	.wrapper {
+		max-width: $wrapper-width * .85;
+	}
+	ul {
+		padding: 0;
+		list-style: none;
+		li {
+			margin: 1em 0;
+			@media (min-width: $media-breakpoint-lg) {
+				display: flex; margin: 1.5em 0;
+				flex-flow: row nowrap; justify-content: flex-start; align-items: stretch;
+			}
+		}
+		a {
+			@media (min-width: $media-breakpoint-lg) {
+				margin-left: 2em;
+			}
+		}
+		span {
+			display: block; margin: 0;
+			@media (min-width: $media-breakpoint-lg) {
+				position: relative; padding: 0 .5em;
+				flex: 0 0 10.5em;
+    			background: $lightgrey;
+			}
+		}
+	}
+}

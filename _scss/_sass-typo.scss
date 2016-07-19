@@ -1,0 +1,47 @@
+/* ==========================================================================
+   Typo classes
+   ========================================================================== */
+
+html, input, textarea, select {
+	font-family: $default-font-family; line-height: $default-line-height; font-weight: $default-font-weight; color: $default-color;
+}
+
+html {
+	font-size: .625em; /* fallback IE8+ */
+	font-size: calc(1em * .625); /* IE9-IE11 math fixing. See http://bit.ly/1g4X0bX */
+}
+
+body {
+	font-size: $media-ratio-xs * $defaut-font-size;
+	@media (min-width: $media-breakpoint-sm) {
+		font-size: $media-ratio-sm * $defaut-font-size;
+	}
+	@media (min-width: $media-breakpoint-md) {
+		font-size: $media-ratio-md * $defaut-font-size;
+	}
+	@media (min-width: $media-breakpoint-lg) {
+		font-size: $media-ratio-lg * $defaut-font-size;
+	}
+	@media (min-width: $media-breakpoint-xl) {
+		font-size: $media-ratio-xl * $defaut-font-size;
+	}
+}
+
+h1, h2, h3, h4, h5, h6, .h-style, button {
+	font-family: $title-font-family; font-style: $title-font-style; font-weight: $title-font-weight; text-transform: uppercase;
+}
+
+p, ul, ol, dl, blockquote, pre, td, th, label, textarea, caption {
+	margin: $default-line-height * 1em 0;
+}
+
+@each $font-class in $font-classes {
+	$name: map-get($font-class, 'name');
+	$size: map-get($font-class, 'size');
+
+	.#{$name} {
+		// Vertical rhythm http://soqr.fr/vertical-rhythm/
+		margin: (($default-line-height / $size) * 1em) 0;
+		font-size: $size * 1em; line-height: ($default-line-height / $size);
+	}
+}

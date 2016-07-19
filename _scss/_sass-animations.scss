@@ -1,0 +1,21 @@
+/* ==========================================================================
+   Animations declarations
+   ========================================================================== */
+
+@keyframes quote {
+	0%   { transform: translateY(0); }
+	15%  { transform: translateY(0); }
+	20%  { transform: translateY(-20%); }
+	35%  { transform: translateY(-20%); }
+	40%  { transform: translateY(-40%); }
+	55%  { transform: translateY(-40%); }
+	60%  { transform: translateY(-60%); }
+	75%  { transform: translateY(-60%); }
+	80%  { transform: translateY(-80%); }
+	95%  { transform: translateY(-80%); }
+	100% { transform: translateY(0); }
+}
+@keyframes load {
+	0%   { transform: rotate(-90deg); }
+	100% { transform: rotate(270deg); }
+}

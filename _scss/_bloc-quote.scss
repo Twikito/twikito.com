@@ -1,0 +1,28 @@
+.quote {
+	text-align: center;
+	p {
+		position: relative; display: inline-block; margin: 0;
+		line-height: 1.5em;
+		svg {
+			display: block; width: 2em; height: $default-line-height * 1em; margin: 0 auto .5em;
+			fill: #fff;
+			@media (min-width: $media-breakpoint-lg) {
+				position: absolute; top: -.4em; left: -1.2em; margin: 0;
+			}
+		}
+		& > span {
+			display: inline-block; height: $default-line-height * 1em; overflow: hidden;
+			vertical-align: top;
+		}
+		& > span > span {
+			display: block;
+			text-align: left;
+			animation: quote $quote-duration $quote-timing-function infinite;
+		}
+		& > span:hover > span::before {
+			position: absolute; top: 0; left: 0; right: 0; z-index: 1;
+			background: $green-block-bg;
+			content: "+ g33k, ";
+		}
+	}
+}

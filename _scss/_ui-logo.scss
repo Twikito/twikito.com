@@ -1,0 +1,149 @@
+// Declarations ---------------------------------------------------------------
+
+$logo-dasharray-blank    : 2000px;
+$logo-animation-duration : 5s;
+
+$logo-stroke-color       : $midgrey;
+$logo-stroke-width       : 1px;
+
+$logo-strokes: (
+	(
+		'id': 'stroke-a',
+		'easing-function': $easeInQuart,
+		'steps': (
+			0%: 0px,
+			40%: 1305px,
+		)
+	),(
+		'id': 'stroke-b',
+		'easing-function': $easeInOutQuad,
+		'steps': (
+			0%: 0px,
+			40%: 0px,
+			60%: 880px,
+		)
+	),(
+		'id': 'stroke-c',
+		'easing-function': $easeInOutQuad,
+		'steps': (
+			0%: 0px,
+			35%: 0px,
+			55%: 795px,
+		)
+	),(
+		'id': 'stroke-d',
+		'easing-function': $easeOutQuart,
+		'steps': (
+			0%: 0px,
+			60%: 0px,
+			75%: 165px,
+		)
+	),(
+		'id': 'stroke-e',
+		'easing-function': $easeOutQuart,
+		'steps': (
+			0%: 0px,
+			60%: 0px,
+			75%: 75px,
+		)
+	),(
+		'id': 'stroke-f',
+		'easing-function': $easeOutQuart,
+		'steps': (
+			0%: 0px,
+			60%: 0px,
+			75%: 190px,
+		)
+	),(
+		'id': 'stroke-g',
+		'easing-function': $easeOutQuart,
+		'steps': (
+			0%: 0px,
+			55%: 0px,
+			70%: 165px,
+		)
+	),(
+		'id': 'stroke-h',
+		'easing-function': $easeOutQuart,
+		'steps': (
+			0%: 0px,
+			55%: 0px,
+			70%: 125px,
+		)
+	),(
+		'id': 'stroke-i',
+		'easing-function': $easeOutQuart,
+		'steps': (
+			0%: 0px,
+			55%: 0px,
+			70%: 90px,
+		)
+	),(
+		'id': 'stroke-j',
+		'easing-function': $easeOutQuart,
+		'steps': (
+			0%: 0px,
+			45%: 0px,
+			75%: 880px,
+		)
+	)
+);
+
+
+// Logo base styles -----------------------------------------------------------
+
+[id='logo'] {
+	transform-origin: center bottom;
+	animation: svg $logo-animation-duration cubic-bezier(unquote($easeInOutCubic));
+	[id="svg-fills"] {
+		animation: svg-fills $logo-animation-duration cubic-bezier(unquote($easeOutQuad));
+	}
+	[id="svg-strokes"] {
+		opacity: 0;
+		animation: svg-strokes $logo-animation-duration cubic-bezier(unquote($easeOutQuad));
+		path {
+			stroke: $logo-stroke-color;
+			stroke-width: $logo-stroke-width;
+			stroke-linecap: round;
+			fill: none;
+		}
+	}
+}
+
+
+// Animations -----------------------------------------------------------------
+
+@each $stroke in $logo-strokes {
+	$id: map-get($stroke, 'id');
+	$steps: map-get($stroke, 'steps');
+	$length: nth(nth($steps, -1), 2);
+	$easing-function: map-get($stroke, 'easing-function');
+
+	@keyframes #{$id} {
+		@each $step, $value in $steps {
+			#{$step} {
+				stroke-dasharray: $value, $logo-dasharray-blank;
+			}
+		}
+	}
+
+	[id='logo'] [id='#{$id}'] {
+		stroke-dasharray: $length, $logo-dasharray-blank;
+		animation: unquote($id) $logo-animation-duration cubic-bezier(unquote($easing-function));
+	}
+}
+
+@keyframes svg-strokes {
+	from, to  { opacity: 0; }
+	30%, 80%  { opacity: 1; }
+}
+
+@keyframes svg-fills {
+	from, 70% { opacity: 0; }
+	to        { opacity: 1; }
+}
+
+@keyframes svg {
+	from { transform: translateY(-2%) scale(1.1); }
+	75%  { transform: translateY(0) scale(1); }
+}

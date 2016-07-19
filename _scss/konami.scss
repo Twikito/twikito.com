@@ -1,0 +1,279 @@
+/*!important !important !important ^^
+*/
+
+@import "sass-variables";
+
+$retro-color : #0f0;
+$retro-font  : "Mono0755", "Courier New", Courier, monospace;
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+@keyframes blink {
+	50% { opacity: 0; }
+}
+
+/* ==========================================================================
+   Retro font
+   ========================================================================== */
+
+@font-face {
+    font-family: 'Mono0755';
+    src: url('../fonts/mono0755-webfont.eot');
+    src: url('../fonts/mono0755-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/mono0755-webfont.woff') format('woff'),
+         url('../fonts/mono0755-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ==========================================================================
+   Retro style
+   ========================================================================== */
+
+*,
+body::before,
+footer::before {
+	background: transparent !important;
+}
+* {
+	font-family: $retro-font !important; font-weight: normal !important; font-style: normal !important; color: $retro-color !important;
+	transition-duration: 0s !important;
+}
+
+::-moz-selection {
+    background: $retro-color !important;
+    text-shadow: none !important; color: black !important;
+}
+::selection {
+    background: $retro-color !important;
+    text-shadow: none !important; color: black !important;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	color: $retro-color;
+}
+::-moz-placeholder { /* Firefox 19+ */
+	color: $retro-color;
+}
+:-ms-input-placeholder { /* IE 10+ */
+	color: $retro-color;
+}
+:-moz-placeholder { /* Firefox 18- */
+	color: $retro-color;
+}
+:placeholder-shown { /* Standard */
+	color: $retro-color;
+}
+::placeholder { /* Futur standard */
+	color: $retro-color;
+}
+
+body {
+	background-color: black !important;
+}
+
+abbr[title] {
+	border-bottom: none !important;
+}
+
+svg {
+	fill: $retro-color !important;
+}
+
+.navicon {
+	&,
+	&::after,
+	&::before {
+		border-radius: 0 !important;
+		background: $retro-color !important;
+		transition-duration: 0s !important;
+	}
+}
+
+nav {
+	svg {
+		background: $retro-color !important;
+		& > * {
+			display: none !important;
+		}
+	}
+}
+
+[id='navcheck']:checked ~ nav a {
+	@media (min-width: $media-breakpoint-md) {
+		&:hover,
+		&:focus {
+			span {
+				width: 10em !important;
+			}
+		}
+	}
+}
+
+[id='logo'] {
+	background: center / cover no-repeat url(../img/layout/logo-16bits.gif) !important;
+	[id="svg-fills"],
+	[id="svg-strokes"] {
+		display: none !important;
+	}
+}
+
+hr {
+	height: .25em !important;
+	background: $retro-color !important;
+	&::before,
+	&::after {
+		content: none !important;
+	}
+}
+
+article {
+	padding: 5% 0 !important;
+	& > header {
+		a::after {
+			right: 50% !important;
+			transform: translate(-50%,-50%) !important;
+			font-family: $retro-font !important;
+		}
+		svg {
+			display: none !important;
+		}
+	}
+}
+
+[role='banner'] {
+	h1 {
+		font-size: 2.7em;
+//		strong::after {
+//			display: inline-block !important; margin-right: -.6em !important;
+//			content: "|" !important;
+//			animation: blink 1s steps(1) infinite !important;
+//		}
+	}
+	a {
+		width: auto !important; height: auto !important;
+		text-decoration: none;
+		svg {
+			display: none !important;
+		}
+		span {
+			position: static !important; width: auto !important; height: auto !important; margin: auto !important; overflow: visible !important;
+			clip: auto !important;
+			font-size: .5em; text-decoration: underline;
+		}
+		&:hover,
+		&:focus {
+			span {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.quote p {
+	svg {
+		display: none !important;
+	}
+	& > span {
+		&:hover > span::before {
+			background: #000 !important;
+		}
+		span {
+			animation-timing-function: steps(3) !important;
+		}
+	}
+}
+
+.skills {
+	section h3 {
+		font-size: .75em !important;
+		&::before {
+			display: none !important;
+		}
+		span {
+			line-height: 1em !important;
+		}
+	}
+	.s01 { font-size: (8.1/$media-ratio-xl)*1em !important; }
+	.s02 { font-size: (10.4/$media-ratio-xl)*1em !important; }
+	.s03 { font-size: (16.3/$media-ratio-xl)*1em !important; }
+	.s04 { font-size: (8.7/$media-ratio-xl)*1em !important; }
+	.s05 { font-size: (6.2/$media-ratio-xl)*1em !important; }
+	.s06 { font-size: (8.9/$media-ratio-xl)*1em !important; }
+	.s07 { font-size: (6.5/$media-ratio-xl)*1em !important; }
+	.s08 { font-size: (5.85/$media-ratio-xl)*1em !important; }
+}
+
+.love figure {
+	display: none !important;
+}
+
+.xp {
+	.wrapper {
+		max-width: $wrapper-width !important;
+	}
+	.screenshots {
+		display: none !important;
+	}
+	section h3::before {
+		display: none !important;
+	}
+}
+
+.talks {
+	.wrapper {
+		max-width: $wrapper-width !important;
+	}
+	ul span {
+		@media (min-width: $media-breakpoint-lg) {
+			flex: 0 0 15em !important;
+		}
+	}
+}
+
+.social p a {
+	margin: 0;
+	flex: 0 0 auto;
+	svg {
+		display: none !important;
+	}
+	span {
+		position: static !important; display: block !important; width: auto !important; height: auto !important; margin: auto !important; overflow: visible !important;
+		clip: auto !important;
+	}
+}
+
+.contact {
+	form {
+		input,
+		textarea {
+			border-color: $retro-color !important;
+		}
+		button {
+			&,
+			&:hover,
+			&:focus,
+			&:active {
+				box-shadow: none !important;
+				background: $retro-color !important;
+				color: #000 !important; text-shadow: none !important;
+			}
+		}
+	}
+	.m {
+		span {
+			line-height: 1em !important;
+		}
+		.s1 { font-size: (8/$media-ratio-xl)*1em !important; }
+		.s2 { font-size: (5.7/$media-ratio-xl)*1em !important; }
+		.s3 { font-size: (5.7/$media-ratio-xl)*1em !important; }
+		.s4 { font-size: (8.1/$media-ratio-xl)*1em !important; }
+		.s5 { font-size: (13.8/$media-ratio-xl)*1em !important; }
+	}
+}
+
+.totop {
+	display: none !important;
+}
