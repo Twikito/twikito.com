@@ -10,7 +10,7 @@
 
 $base-font-size: 22px;
 
-$default_bg       : #ebebeb;
+$default_bg       : #f0f0f6;
 $default_color    : #333;
 $default_hl_color : #49b74a;
 
@@ -19,16 +19,24 @@ $default_hl_color : #49b74a;
    ========================================================================== */
 
 html {
-	font-size: 62.5%; /* equiv 10px with 16px default browser font-size */
+	height: 100%;
+	font-size: 62.5%;
 }
 body {
+	display: flex; min-height: 100%;
+	flex-flow: row nowrap; justify-content: center; align-items: center;
 	background: $default_bg;
-	font-size: 1em; /* equiv 22px with 2.2em */
+	font-size: .75em;
 	line-height: 1.5;
 }
 div {
-	position: relative; max-width: 53em; height: 32em; margin: 5% auto; padding: 0 1em;
-	background: center no-repeat url(../img/layout/404.svg); background-size: contain;
+	position: relative; margin: 1em;
+	flex: 0 1 53em;
+	background: center / contain no-repeat url(../img/layout/404.svg);
+	&::before {
+		display: block; margin-bottom: 60%;
+		content: '';
+	}
 }
 a {
 	position: absolute; left: 3%; top: 5%; display: inline-block;
@@ -38,10 +46,10 @@ a {
 		display: block;
 		transition: all .2s ease-in-out;
 	}
-	.s01 { font-size: 8em;    line-height: .75em; }
-	.s02 { font-size: 4em;    line-height: .85em; }
-	.s03 { font-size: 1.28em; line-height: 1.2em; }
-	.s04 { font-size: 2.07em; line-height: .85em; }
+	.s01 { font-size: 8em;     line-height: .75em; }
+	.s02 { font-size: 4.2em;   line-height: .85em; display: none; }
+	.s03 { font-size: 1.325em; line-height: 1.2em; }
+	.s04 { font-size: 2.125em; line-height: .85em; }
 
 	&:hover .s04,
 	&:focus .s04 {
@@ -54,22 +62,31 @@ a {
    Media Queries
    ========================================================================== */
 
-@media only screen and (min-width: 30em) {
+@media (min-width: 24em) {
+
+	body{
+		font-size: 1em;
+	}
+}
+@media (min-width: 33em) {
 
 	body{
 		font-size: 1.2em;
 	}
 	a {
 		left: 9%;
+		.s02 {
+			display: block;
+		}
 	}
 }
-@media only screen and (min-width: 40em) {
+@media (min-width: 45em) {
 
 	body{
 		font-size: 1.6em;
 	}
 }
-@media only screen and (min-width: 53em) {
+@media (min-width: 60em) {
 
 	body{
 		font-size: 2.2em;
