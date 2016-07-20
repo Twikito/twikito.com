@@ -45,3 +45,7 @@ p, ul, ol, dl, blockquote, pre, td, th, label, textarea, caption {
 		font-size: $size * 1em; line-height: ($default-line-height / $size);
 	}
 }
+
+.amp {
+	font-family: $amp-font-family; font-size: 1.05em; font-weight: $amp-font-weight; font-style: $amp-font-style;
+}
