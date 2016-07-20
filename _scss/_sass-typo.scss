@@ -47,5 +47,8 @@ p, ul, ol, dl, blockquote, pre, td, th, label, textarea, caption {
 }
 
 .amp {
-	font-family: $amp-font-family; font-size: 1.05em; font-weight: $amp-font-weight; font-style: $amp-font-style;
+	font-family: $amp-font-family; font-weight: $amp-font-weight; font-style: $amp-font-style;
+	@media (min-width: $media-breakpoint-xl) {
+		font-size: 1.025em;
+	}
 }
