@@ -10,7 +10,7 @@ nav {
 		transform: translateX(-$navitem-size);
 	}
 	&:hover a {
-		opacity: .25;
+		opacity: .35;
 	}
 	a {
 		position: relative; display: block; width: 11.5em; height: $navitem-size;
@@ -22,6 +22,9 @@ nav {
 		&:hover,
 		&:focus {
 			opacity: 1;
+			@media (min-width: $media-breakpoint-md) {
+				background-color: rgba($darkgrey,.5);
+			}
 		}
 		@for $i from 1 through 9 {
 			&:nth-child(#{$i}) {
@@ -37,7 +40,7 @@ nav {
 			}
 			@media (min-width: $media-breakpoint-md) {
 				position: absolute; top: 0; bottom: 0; left: 100%; display: block; width: 0; overflow: hidden;
-				background: rgba($darkgrey,.7);
+				background: rgba($darkgrey,.75);
 				text-indent: 1em;
 				transition: $default-duration cubic-bezier(unquote($easeOutBack));
 			}
