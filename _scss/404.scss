@@ -1,94 +1,119 @@
-/* ==========================================================================
-   Imports
-   ========================================================================== */
-
 @import "vendor/normalize/normalize";
-
-/* ==========================================================================
-   Variables
-   ========================================================================== */
-
-$base-font-size: 22px;
 
 $default_bg       : #f0f0f6;
 $default_color    : #333;
 $default_hl_color : #49b74a;
 
-/* ==========================================================================
-   Custom styles
-   ========================================================================== */
+@keyframes frog {
+	from { filter: hue-rotate(0deg); }
+	to   { filter: hue-rotate(360deg); }
+}
+
 
 html {
 	height: 100%;
-	font-size: 62.5%;
 }
 body {
 	display: flex; min-height: 100%;
-	flex-flow: row nowrap; justify-content: center; align-items: center;
+	flex-flow: row wrap; justify-content: center; align-items: center; align-content: center;
 	background: $default_bg;
-	font-size: .75em;
-	line-height: 1.5;
 }
-div {
+
+
+.frog-container {
 	position: relative; margin: 1em;
-	flex: 0 1 53em;
-	background: center / contain no-repeat url(../img/layout/404.svg);
-	&::before {
-		display: block; margin-bottom: 60%;
-		content: '';
-	}
-}
-a {
-	position: absolute; left: 3%; top: 5%; display: inline-block;
-	color: $default_color; text-align: center; font-family: 'PT Sans Narrow', arial, sans-serif; font-style: normal; font-weight: 700; text-transform: uppercase; text-decoration: none;
-
-	span {
-		display: block;
-		transition: all .2s ease-in-out;
-	}
-	.s01 { font-size: 8em;     line-height: .75em; }
-	.s02 { font-size: 4.2em;   line-height: .85em; display: none; }
-	.s03 { font-size: 1.325em; line-height: 1.2em; }
-	.s04 { font-size: 2.125em; line-height: .85em; }
-
-	&:hover .s04,
-	&:focus .s04 {
-		color: $default_hl_color;
-	}
-}
-
-
-/* ==========================================================================
-   Media Queries
-   ========================================================================== */
-
-@media (min-width: 24em) {
-
-	body{
-		font-size: 1em;
-	}
-}
-@media (min-width: 33em) {
-
-	body{
-		font-size: 1.2em;
-	}
+	flex: 0 1 75em;
 	a {
-		left: 9%;
-		.s02 {
-			display: block;
+		position: relative; z-index: 5; display: block; width: 100%; max-width: 45em; margin: 0; margin-left: auto; padding: 0; overflow: hidden;
+		border-radius: 50%; border: 0; outline: 0;
+		background: none;
+		&::before {
+			display: block; padding-bottom: 100%;
+			border-radius: 50%;
+			content: '';
+		}
+		&:hover,
+		&:focus {
+			& ~ svg {
+				animation: frog .5s linear infinite;
+				.cls-1 {
+					fill: #eff;
+				}
+			}
+		}
+	}
+	.frog-bot,
+	.frog-top {
+		position: absolute; top: 0; right: 0; bottom: 0; max-width: 45em;
+	}
+	.frog-bot {
+		z-index: 0;
+	}
+	.frog-top {
+		z-index: 2;
+	}
+}
+.tongue-container {
+	position: absolute; top: 38.66%; left: 0; right: 31.66%; z-index: 1; display: block; overflow: hidden;
+	@media (min-width: 47em) {
+		top: 17.4em; right: 14.25em;
+	}
+	.tongue {
+		position: relative; display: block; max-width: 49.5em; margin-left: auto; overflow: hidden;
+		&::before {
+			display: block; padding-bottom: 25.6%;
+			content: '';
+		}
+		svg {
+			position: absolute; bottom: 0; left: 0; width: 160.96%; height: 160.96%;
+			@media (min-width: 47em) {
+				width: 49.5em; height: 12.75em;
+			}
+		}
+	}
+	.fly {
+		position: absolute; bottom: 5%; left: 2%; z-index: 1; width: 12.20%; height: 87.11%; display: block;
+		@media (min-width: 47em) {
+			width: 3.75em; height: 6.9em;
+		}
+		svg {
+			width: 100%; height: 100%;
 		}
 	}
 }
-@media (min-width: 45em) {
 
-	body{
-		font-size: 1.6em;
-	}
+svg {
+	.cls-1 { fill: #fff; }
+	.cls-2 { fill: #d3d3d3; }
+	.cls-13,
+	.cls-3 { fill: #fff; }
+	.cls-4 { fill: #ccc; }
+	.cls-5 { fill: #1c1c1c; }
+	.cls-6 { fill: #60bc2a; }
+	.cls-7 { fill: #6ddb3a; }
+	.cls-8 { fill: #173304; }
+	.cls-9 { fill: #2e7003; }
+	.cls-10 { fill: #2a6304; }
+	.cls-11 { fill: #56a822; }
+	.cls-12 { fill: #498e1c; }
+	.cls-13 { stroke: #353535; stroke-width: 2px; }
+	.cls-14 { fill: #b5b5b5; }
+	.cls-15 { fill: #1e1e1e; }
+	.a { fill:#f7a9b9; }
+	.b { fill:#7c2929; }
+	.c,
+	.e { fill:#fff; }
+	.d { fill:#1a171b; }
+	.e { stroke:#1a171b; }
 }
-@media (min-width: 60em) {
 
-	body{
-		font-size: 2.2em;
-	}
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
