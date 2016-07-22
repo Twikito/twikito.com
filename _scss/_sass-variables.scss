@@ -97,7 +97,9 @@ $default-timing-function: cubic-bezier(unquote($easeInOutQuart));
 
 $logo-ratio             : .7;
 
+$navitem-nb             : 10;
 $navitem-size           : 3em;
+$nav-v-breakpoint       : ($navitem-size * $navitem-nb) / ($media-ratio-xs * $defaut-font-size) * 1rem;
 $navitem-delay          : 40ms;
 
 $quote-duration         : 10s;

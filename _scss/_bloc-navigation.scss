@@ -14,8 +14,8 @@ nav {
 	}
 	a {
 		position: relative; display: block; width: 11.5em; height: $navitem-size;
-		color: $white; text-decoration: none;
 		transform: translateX(-100%);
+		color: $white; text-decoration: none;
 		@media (min-width: $media-breakpoint-sm) {
 			width: $navitem-size;
 		}
@@ -43,6 +43,17 @@ nav {
 				background: rgba($darkgrey,.75);
 				text-indent: 1em;
 				transition: $default-duration cubic-bezier(unquote($easeOutBack));
+			}
+		}
+
+		/* For each screen horizontal size, if there's not enough vertical space to display all nav items */
+		@media (max-height: $nav-v-breakpoint * $media-ratio-xs) and (max-width: $media-breakpoint-sm),
+		       (max-height: $nav-v-breakpoint * $media-ratio-sm) and (min-width: $media-breakpoint-sm) and (max-width: $media-breakpoint-md),
+		       (max-height: $nav-v-breakpoint * $media-ratio-md) and (min-width: $media-breakpoint-md) and (max-width: $media-breakpoint-lg),
+		       (max-height: $nav-v-breakpoint * $media-ratio-lg) and (min-width: $media-breakpoint-lg) and (max-width: $media-breakpoint-xl),
+		       (max-height: $nav-v-breakpoint * $media-ratio-xl) and (min-width: $media-breakpoint-xl) {
+			&:nth-child(even){
+				display: none;
 			}
 		}
 	}
