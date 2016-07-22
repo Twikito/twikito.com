@@ -38,7 +38,7 @@
 </head>
 <body>
 	<div class="frog-container">
-		<a href="/" title="Retour &agrave; l'accueil">
+		<a id="link" href="/" title="Retour &agrave; l'accueil">
 			<span class="visuallyhidden">Erreur 404, ressource introuvable.</span>
 		</a>
 		<svg class="frog-bot" viewBox="0 0 570 570">
@@ -123,6 +123,19 @@
 			</g>
 		</svg>
 	</div>
+	<audio id="sound" preload="auto">
+		<source src="assets/sounds/squeeze.webm" type="audio/webm">
+		<source src="assets/sounds/squeeze.ogg" type="audio/ogg">
+		<source src="assets/sounds/squeeze.mp3" type="audio/mpeg">
+	</audio>
+	<script>
+		var link  = document.getElementById("link");
+		var sound = document.getElementById("sound");
+
+		link.addEventListener('mouseover', function(e){sound.play();});
+		link.addEventListener('focus',     function(e){sound.play();});
+		link.addEventListener('touchstart',function(e){sound.play();});
+	</script>
 	<script id="ga-js" data-ga-account="UA-19202435-1" data-ga-domain="twikito.com">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create',document.getElementById("ga-js").getAttribute("data-ga-account"),document.getElementById("ga-js").getAttribute("data-ga-domain"));ga('send','pageview');</script>
 </body>
 </html>
