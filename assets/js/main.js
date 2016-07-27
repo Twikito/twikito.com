@@ -1,9 +1,8 @@
 $(function() {
 
-	// Scroll Effect
+	// Scroll Effect ------------------------------------------------
 	// Usage: <foo data[scrollEffectPrefix]="[class added when outside screen]" (data[scrollEffectPrefix]-repeat="['true'|'false'|max count]" data[scrollEffectPrefix]-offset="[offset in px]")></foo>
 	var scrollEffectPrefix = "-se";
-
 	$(window).on('scroll', function(){
 		$('[data' + scrollEffectPrefix + ']').each(function() {
 			var obj = $(this),
@@ -32,37 +31,20 @@ $(function() {
 			}
 
 			// if ( first scroll OR ( ( infinite OR less that max ) AND ( has not the class AND ouside the frame ) ) )
-			if (
-				(!obj.hasClass(scrollClass) && scrollCount == 0)
-				||
-				(
-					(scrollInfiniteRepeat || scrollCount < scrollRepeat)
-					&&
-					(
-						!obj.hasClass(scrollClass)
-						&&
-						(
-							(windowScrollTop + windowInnerHeight) < thisTop
-							||
-							windowScrollTop > (thisTop + thisOuterHeight)
-						)
-					)
-				)
-			) {
+			if ((!obj.hasClass(scrollClass) && scrollCount == 0) || ((scrollInfiniteRepeat || scrollCount < scrollRepeat) && (!obj.hasClass(scrollClass) && ((windowScrollTop + windowInnerHeight) < thisTop || windowScrollTop > (thisTop + thisOuterHeight))))) {
 				obj.addClass(scrollClass).attr('data' + scrollEffectPrefix + '-count', ++scrollCount);
 			}
 		});
-	}).scroll().scroll(); // Trigger first and second scrolls
+	}).scroll().scroll(); // Trigger first and second scrolls to animate objects already on screen on document ready
 
-	// Extract from jQuery Easing v1.3
-	jQuery.extend( jQuery.easing,{
+	// Scroll animation ---------------------------------------------
+	jQuery.extend( jQuery.easing,{ // Extract from jQuery Easing v1.3
 		easeInOutQuint: function (x, t, b, c, d) {
 			if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
 			return c/2*((t-=2)*t*t*t*t + 2) + b;
 		}
 	});
 
-	// Scroll animation
 	$("a[href^='#']").click(function(e){
 		e.preventDefault();
 		var anchor = this.hash;
@@ -71,7 +53,7 @@ $(function() {
 		$('html,body').stop().animate({'scrollTop':Math.ceil($(anchor).offset().top)},1000,'easeInOutQuint',function(){anchor=="#top"?window.location.hash='':window.location.hash=anchor;});
 	});
 
-	// Form ajax submit
+	// Form ajax submit ---------------------------------------------
 	$('#form').on('submit', function(event) {
 		event.preventDefault();
 		$('#form').append("<div class='ans-frame'><div class='ans-bloc'><div class='ans-inner'><svg><use xlink:href='/assets/img/layout/symbol-defs.svg#icon-refresh' /></svg></div></div></div>").find(".ans-frame").fadeIn('fast');
@@ -99,7 +81,7 @@ $(function() {
 		setTimeout(function(){ $("#form .ans-frame").fadeOut('fast',function(){ $(this).remove(); }); },5000);
 	});
 
-	// Konami code
+	// Konami code --------------------------------------------------
 	function konami(fn) {
 		var input = "";
 		var pattern = "3838404037393739666513";
@@ -121,6 +103,7 @@ $(function() {
 		$('body').attr("contenteditable", "true");
 	});
 
-	// Oh!
+	// Oh! ----------------------------------------------------------
 	console.log("            MMMMMM                              MMMMMM\n            MMMMMM                              MMMMMM\n            MMMMMM                              MMMMMM\nMMMMMM            MMMMMM                  MMMMMM            MMMMMM\nMMMMMM            MMMMMM                  MMMMMM            MMMMMM\nMMMMMM            MMMMMM                  MMMMMM            MMMMMM\nMMMMMM      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      MMMMMM\nMMMMMM      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      MMMMMM\nMMMMMM      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      MMMMMM\nMMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMM\nMMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMM\nMMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMM\nMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\nMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\nMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n            MMMMMM                              MMMMMM\n            MMMMMM                              MMMMMM\n            MMMMMM                              MMMMMM\n      MMMMMM                  MMMMMM                  MMMMMM\n      MMMMMM                  MMMMMM                  MMMMMM\n      MMMMMM                  MMMMMM                  MMMMMM\n                        MMMMMM\n                        MMMMMM\n                        MMMMMM\n                              MMMMMM\n                              MMMMMM\n                              MMMMMM\n                                    MMMMMM\n                                    MMMMMM\n                                    MMMMMM\n                              MMMMMM\n                              MMMMMM\n                              MMMMMM");
+
 });

@@ -19,6 +19,9 @@
 		}
 		span {
 			display: block; margin: 0;
+			&.outside {
+				transform: translateX(2em);
+			}
 			@media (min-width: $media-breakpoint-lg) {
 				position: relative; padding: 0 .5em;
 				flex: 0 0 10.5em;

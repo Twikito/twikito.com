@@ -34,19 +34,17 @@
 			span {
 				transition: color $default-duration $default-timing-function;
 			}
-			&:nth-child(even) span {
-				color: #aaa;
-			}
-			@media (min-width: $media-breakpoint-xl) {
-				&:nth-child(odd) {
-					&.outside {
-						transform: translateX(-4rem);
-					}
+			&:nth-child(odd) {
+				&.outside {
+					transform: translateX(-4rem);
 				}
-				&:nth-child(even) {
-					&.outside {
-						transform: translateX(4rem);
-					}
+			}
+			&:nth-child(even) {
+				&.outside {
+					transform: translateX(4rem);
+				}
+				span {
+					color: #aaa;
 				}
 			}
 		}

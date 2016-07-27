@@ -98,7 +98,7 @@ $default-timing-function: cubic-bezier(unquote($easeInOutQuart));
 $quote-duration         : 10s;
 $quote-timing-function  : cubic-bezier(0.3, 0, 0.32, 1.27);
 
-$scrolleffect-duration  : .5s;
+$scrolleffect-duration  : 1s;
 $scrolleffect-timing-function : cubic-bezier(unquote($easeOutQuart));
 
 $logo-ratio             : .7;
