@@ -18,22 +18,36 @@
 			text-decoration: none; text-align: center;
 			&:hover,
 			&:focus {
-				span {
-					&:nth-child(even) {
-						color: $green-block-bg;
-					}
-					&:nth-child(odd) {
+				[class^='s'] {
+					&:nth-child(odd) span {
 						color: darken($green-block-bg, 10%);
+					}
+					&:nth-child(even) span {
+						color: $green-block-bg;
 					}
 				}
 			}
 		}
-		span {
+		[class^='s'] {
 			display: block;
 			line-height: .85em; text-align: center;
-			transition: $default-duration $default-timing-function;
-			&:nth-child(even) {
+			span {
+				transition: color $default-duration $default-timing-function;
+			}
+			&:nth-child(even) span {
 				color: #aaa;
+			}
+			@media (min-width: $media-breakpoint-xl) {
+				&:nth-child(odd) {
+					&.outside {
+						transform: translateX(-4rem);
+					}
+				}
+				&:nth-child(even) {
+					&.outside {
+						transform: translateX(4rem);
+					}
+				}
 			}
 		}
 		.s1 { font-size: (11/$media-ratio-xl)*1em; }

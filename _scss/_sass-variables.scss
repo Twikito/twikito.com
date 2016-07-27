@@ -95,12 +95,15 @@ $default-duration       : .25s;
 @import "vendor/ceaser/ceaser";
 $default-timing-function: cubic-bezier(unquote($easeInOutQuart));
 
+$quote-duration         : 10s;
+$quote-timing-function  : cubic-bezier(0.3, 0, 0.32, 1.27);
+
+$scrolleffect-duration  : .5s;
+$scrolleffect-timing-function : cubic-bezier(unquote($easeOutQuart));
+
 $logo-ratio             : .7;
 
 $navitem-nb             : 10;
 $navitem-size           : 3em;
 $nav-v-breakpoint       : ($navitem-size * $navitem-nb) / ($media-ratio-xs * $defaut-font-size) * 1rem;
 $navitem-delay          : 40ms;
-
-$quote-duration         : 10s;
-$quote-timing-function  : cubic-bezier(0.3, 0, 0.32, 1.27);

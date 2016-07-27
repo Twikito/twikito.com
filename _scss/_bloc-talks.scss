@@ -23,6 +23,9 @@
 				position: relative; padding: 0 .5em;
 				flex: 0 0 10.5em;
     			background: $lightgrey;
+				&.outside {
+					transform: translateX(-2em);
+				}
 			}
 		}
 	}

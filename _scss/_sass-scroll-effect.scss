@@ -1,0 +1,7 @@
+[data-se] {
+	transition: $scrolleffect-duration $scrolleffect-timing-function;
+	&.outside {
+		opacity: 0;
+		transition: none;
+	}
+}

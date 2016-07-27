@@ -23,6 +23,11 @@
 		span {
 			display: inline-block; margin: 0;
 			line-height: 1em;
+			@media (min-width: $media-breakpoint-xl) {
+				&.outside {
+					transform: translateY(-1em);
+				}
+			}
 		}
 	}
 }

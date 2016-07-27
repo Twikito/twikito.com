@@ -17,21 +17,24 @@
 				flex-direction: row-reverse;
 				header {
 					text-align: right;
+					&.outside {
+						transform: translateX(2em);
+					}
 				}
 			}
 			&:nth-child(even) {
 				flex-direction: row;
 				header {
 					text-align: left;
+					&.outside {
+						transform: translateX(-2em);
+					}
 				}
 			}
 		}
 		header {
 			flex: 1;
 			text-align: center;
-			@media (min-width: $media-breakpoint-xl) {
-
-			}
 			span {
 				position: relative; z-index: 1; display: block;
 				line-height: .85em;
@@ -39,9 +42,6 @@
 		}
 		p {
 			flex: 2;
-			@media (min-width: $media-breakpoint-xl) {
-
-			}
 		}
 		h3 {
 			position: relative; display: inline-block; margin: 1.5em 0; padding:0;
