@@ -53,6 +53,9 @@
 		h3 {
 			margin: 0;
 			line-height: 1.1em;
+			&.outside {
+				transform: translateX(1em);
+			}
 			@media (min-width: $media-breakpoint-lg) {
 				&::before {
 					position: relative; display: inline-block; width: 1.1em;
@@ -64,20 +67,14 @@
 			}
 		}
 		label {
+			margin: 0;
 			@media (min-width: $media-breakpoint-lg) {
 				margin-left: .2em;
-				vertical-align: middle;
-				transition: $default-duration / 2 $default-timing-function;
-				cursor: pointer;
+				vertical-align: middle; cursor: pointer;
+				transition: $default-duration $default-timing-function;
 				&:hover,
 				&:focus {
 					color: $default_hl_color;
-				}
-			}
-			span {
-				display: inline-block;
-				&.outside {
-					transform: translateX(1em);
 				}
 			}
 		}
