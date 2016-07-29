@@ -1,19 +1,48 @@
 $(function() {
 
-	// Scroll Effect ------------------------------------------------
+	// Scroll Effect --------------------------------------------------------------------
 	// Usage: <foo data[scrollEffectPrefix]="[class added when outside screen]" (data[scrollEffectPrefix]-repeat="['true'|'false'|max count]" data[scrollEffectPrefix]-offset="[offset in px]")></foo>
-	var scrollEffectPrefix = "-se";
-	$(window).on('scroll', function(){
-		$('[data' + scrollEffectPrefix + ']').each(function() {
-			var obj = $(this),
-				scrollClass = obj.attr('data' + scrollEffectPrefix),
-				scrollRepeat = obj.attr('data' + scrollEffectPrefix + '-repeat'),
-				scrollOffset = parseInt(obj.attr('data' + scrollEffectPrefix + '-offset')),
-				scrollCount = parseInt(obj.attr('data' + scrollEffectPrefix + '-count')),
-				thisTop = obj.offset().top,
-				thisOuterHeight = obj.outerHeight(),
-				windowScrollTop = $(window).scrollTop(),
-				windowInnerHeight = $(window).innerHeight(),
+	var scrollEffectPrefix = "se";
+	var nodeTab = [].slice.call(document.body.querySelectorAll('[data-' + scrollEffectPrefix + ']'));
+
+	function debounce(func, wait, immediate) {
+		var timeout;
+		return function() {
+			var context = this,
+				args = arguments;
+			var later = function() {
+				timeout = null;
+				if (!immediate) func.apply(context, args);
+			};
+			var callNow = immediate && !timeout;
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+			if (callNow) func.apply(context, args);
+		};
+	}
+
+	function getConfig(node) {
+		return {
+			className: node.dataset[scrollEffectPrefix],
+			repeat: node.dataset[scrollEffectPrefix + 'Repeat'],
+			offset: +node.dataset[scrollEffectPrefix + 'Offset'],
+			count: +node.dataset[scrollEffectPrefix + 'Count']
+		};
+	}
+
+	function scrollEffect() {
+		var windowScrollTop = window.scrollY,
+			windowInnerHeight = window.innerHeight;
+
+		nodeTab.forEach(function(node) {
+			var config = getConfig(node),
+				scrollClass = config.className,
+				scrollRepeat = config.repeat,
+				scrollOffset = config.offset,
+				scrollCount = config.count,
+				thisRect = node.getBoundingClientRect(),
+				thisTop = thisRect.top,
+				thisBottom = thisRect.bottom,
 				scrollInfiniteRepeat = false;
 
 			scrollCount = isNaN(scrollCount) ? 0 : scrollCount;
@@ -22,22 +51,29 @@ $(function() {
 			if (scrollRepeat === 'true') {
 				scrollInfiniteRepeat = true;
 			} else {
-				scrollRepeat = isNaN(parseInt(scrollRepeat)) ? 1 : parseInt(scrollRepeat);
+				scrollRepeat = isNaN(+scrollRepeat) ? 1 : +scrollRepeat;
 			}
 
-			// if ( has the class AND window bottom >= top of object + offset AND window top <= bottom of object - offset )
-			if (obj.hasClass(scrollClass) && (windowScrollTop + windowInnerHeight) >= (thisTop + scrollOffset) && windowScrollTop <= (thisTop + thisOuterHeight - scrollOffset)) {
-				obj.removeClass(scrollClass);
+			// if ( has the class AND viewport bottom >= top of object + offset AND viewport top <= bottom of object - offset )
+			if (node.classList.contains(scrollClass) && (thisTop + scrollOffset) <= windowInnerHeight && (thisBottom - scrollOffset) >= 0 ) {
+				node.classList.remove(scrollClass);
 			}
 
-			// if ( first scroll OR ( ( infinite OR less that max ) AND ( has not the class AND ouside the frame ) ) )
-			if ((!obj.hasClass(scrollClass) && scrollCount == 0) || ((scrollInfiniteRepeat || scrollCount < scrollRepeat) && (!obj.hasClass(scrollClass) && ((windowScrollTop + windowInnerHeight) < thisTop || windowScrollTop > (thisTop + thisOuterHeight))))) {
-				obj.addClass(scrollClass).attr('data' + scrollEffectPrefix + '-count', ++scrollCount);
+			// if ( first scroll OR ( ( infinite OR less that max ) AND ( has not the class AND ouside of viewport ) ) )
+			if ((!node.classList.contains(scrollClass) && scrollCount === 0) || ((scrollInfiniteRepeat || scrollCount < scrollRepeat) && (!node.classList.contains(scrollClass) && (thisTop > windowInnerHeight || thisBottom < 0)))) {
+				node.classList.add(scrollClass);
+				node.setAttribute('data-' + scrollEffectPrefix + '-count', ++scrollCount);
 			}
 		});
-	}).scroll().scroll(); // Trigger first and second scrolls to animate objects already on screen on document ready
+	}
 
-	// Scroll animation ---------------------------------------------
+	// Trigger first and second scrolls to animate objects already on screen on document ready
+	scrollEffect();
+	scrollEffect();
+
+	window.addEventListener('scroll', debounce(scrollEffect, 10), true);
+
+	// Scroll animation -----------------------------------------------------------------
 	jQuery.extend( jQuery.easing,{ // Extract from jQuery Easing v1.3
 		easeInOutQuint: function (x, t, b, c, d) {
 			if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
@@ -53,7 +89,7 @@ $(function() {
 		$('html,body').stop().animate({'scrollTop':Math.ceil($(anchor).offset().top)},1000,'easeInOutQuint',function(){anchor=="#top"?window.location.hash='':window.location.hash=anchor;});
 	});
 
-	// Form ajax submit ---------------------------------------------
+	// Form ajax submit -----------------------------------------------------------------
 	$('#form').on('submit', function(event) {
 		event.preventDefault();
 		$('#form').append("<div class='ans-frame'><div class='ans-bloc'><div class='ans-inner'><svg><use xlink:href='/assets/img/layout/symbol-defs.svg#icon-refresh' /></svg></div></div></div>").find(".ans-frame").fadeIn('fast');
@@ -81,7 +117,7 @@ $(function() {
 		setTimeout(function(){ $("#form .ans-frame").fadeOut('fast',function(){ $(this).remove(); }); },5000);
 	});
 
-	// Konami code --------------------------------------------------
+	// Konami code ----------------------------------------------------------------------
 	function konami(fn) {
 		var input = "";
 		var pattern = "3838404037393739666513";
@@ -103,7 +139,7 @@ $(function() {
 		$('body').attr("contenteditable", "true");
 	});
 
-	// Oh! ----------------------------------------------------------
+	// Oh! ------------------------------------------------------------------------------
 	console.log("            MMMMMM                              MMMMMM\n            MMMMMM                              MMMMMM\n            MMMMMM                              MMMMMM\nMMMMMM            MMMMMM                  MMMMMM            MMMMMM\nMMMMMM            MMMMMM                  MMMMMM            MMMMMM\nMMMMMM            MMMMMM                  MMMMMM            MMMMMM\nMMMMMM      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      MMMMMM\nMMMMMM      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      MMMMMM\nMMMMMM      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      MMMMMM\nMMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMM\nMMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMM\nMMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMM\nMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\nMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\nMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n            MMMMMM                              MMMMMM\n            MMMMMM                              MMMMMM\n            MMMMMM                              MMMMMM\n      MMMMMM                  MMMMMM                  MMMMMM\n      MMMMMM                  MMMMMM                  MMMMMM\n      MMMMMM                  MMMMMM                  MMMMMM\n                        MMMMMM\n                        MMMMMM\n                        MMMMMM\n                              MMMMMM\n                              MMMMMM\n                              MMMMMM\n                                    MMMMMM\n                                    MMMMMM\n                                    MMMMMM\n                              MMMMMM\n                              MMMMMM\n                              MMMMMM");
 
 });
