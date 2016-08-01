@@ -35,6 +35,7 @@ Le code étant en grande partie expérimentale et démonstrative, pour des quest
 * [Les icônes](#les-icônes)
 * [Le burger](#le-burger)
 * [La barre de navigation](#la-barre-de-navigation)
+* [La navigation responsive](#La-navigation-responsive)
 * [L'animation du logo](#lanimation-du-logo)
 * [Les zones de travers](#les-zones-de-travers)
 * [Le texte défilant](#le-texte-défilant)
@@ -67,6 +68,18 @@ Je me sers d'un checkbox, converti en bouton via ``role='button'``. L'icône est
 Une subtilité pour améliorer l'expérience utilisateur : sur mobile, j'ajoute un pseudo-élément au label qui recouvre tout le viewport, sous la navigation, ce qui permet ainsi de simplifier la fermeture de cette navigation.
 
 _[Voir la démo isolée pour plus de détails](http://codepen.io/Twikito/full/zGdqVO)._
+
+### La navigation responsive
+
+La barre de navigation s'adapte en fonction de la taille de l'écran.
+
+Sur grands écrans, la navigation est pensée pour être secondaire, c'est-à-dire qu'on peut faire le choix de ne pas l'utiliser, cela ne nuira pas à la lecture du site. Il est possible également de laisser cette navigation toujours ouverte, sans être gêné pour la lecture.
+
+Sur écrans intermédiaires, les dimensions de la barre sont diminuées, de même pour tous les contenus du site.
+
+Sur petits écrans, typiquement smartphones, la navigation recouvre une plus grande partie de l'espace disponible, les intitulés étant affichés d'emblée. C'est pour cette raison que la fermeture est facilitée avec la possibilité de cliquer (ou taper) en dehors pour fermer la navigation.
+
+Enfin, sur écrans à hauteur réduite, typiquement smartphones ou tablettes en orientation paysage, j'ai fait le choix de cacher les items jugés secondaires, laissant ainsi les plus importants visibles sans débordement.
 
 ### L'animation du logo
 
