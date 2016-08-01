@@ -103,7 +103,7 @@ $scrolleffect-timing-function : cubic-bezier(unquote($easeOutQuart));
 
 $logo-ratio             : .7;
 
-$navitem-nb             : 10;
+$navitem-nb             : 9;
 $navitem-size           : 3em;
-$nav-v-breakpoint       : ($navitem-size * $navitem-nb) / ($media-ratio-xs * $defaut-font-size) * 1rem;
+$nav-v-breakpoint       : ($navitem-size * ($navitem-nb+1)) / ($media-ratio-xs * $defaut-font-size) * 1rem;
 $navitem-delay          : 40ms;
