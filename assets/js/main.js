@@ -120,7 +120,7 @@ $(function() {
 	// Konami code ----------------------------------------------------------------------
 	function konami(fn) {
 		var input = "";
-		var pattern = "3838404037393739666513";
+		var pattern = "38384040373937396665";
 		$(document).keydown(function(e) {
 			//console.log(e.keyCode);
 			if(pattern.indexOf(e.keyCode) !== -1){
