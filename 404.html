@@ -129,8 +129,8 @@
 		<source src="assets/sounds/squeeze.mp3" type="audio/mpeg">
 	</audio>
 	<script>
-		var link  = document.getElementById("link");
-		var sound = document.getElementById("sound");
+		var link  = document.querySelector("#link");
+		var sound = document.querySelector("#sound");
 
 		link.addEventListener('mouseover', function(e){sound.play();});
 		link.addEventListener('focus',     function(e){sound.play();});
