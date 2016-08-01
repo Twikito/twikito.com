@@ -1,7 +1,7 @@
 $(function() {
 
 	// Scroll Effect --------------------------------------------------------------------
-	// Usage: <foo data[scrollEffectPrefix]="[class added when outside screen]" (data[scrollEffectPrefix]-repeat="['true'|'false'|max count]" data[scrollEffectPrefix]-offset="[offset in px]")></foo>
+	// Usage: <foo data-(scrollEffectPrefix)="(class added when outside screen)" [ data-(scrollEffectPrefix)-repeat="('true'|'false'|max count)" data-(scrollEffectPrefix)-offset="(offset in px)" ]></foo>
 	var scrollEffectPrefix = "se";
 	var nodeTab = [].slice.call(document.body.querySelectorAll('[data-' + scrollEffectPrefix + ']'));
 
