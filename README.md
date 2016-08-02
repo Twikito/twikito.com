@@ -6,7 +6,7 @@ Le site [twikito.com](http://twikito.com) est le webfolio de Matthieu Bué, Web 
 Installation
 -----------
 
-Le site [twikito.com](http://twikito.com) est complié avec l'application [Prepros](https://prepros.io/). Vous trouverez la config à la racine.
+Le site [twikito.com](http://twikito.com) est compilé avec l'application [Prepros](https://prepros.io/). Vous trouverez la config à la racine.
 
 Support navigateur
 -----------
@@ -20,15 +20,15 @@ Le site [twikito.com](http://twikito.com) utilise [Autoprefixer](https://github.
 * Opera
 * Safari
 
-Copyright et license
+Copyright et licence
 -----------
 
-Code copyright 2016 Matthieu Bué. Le code est délivré sous [license MIT](https://github.com/Twikito/twikito.com/blob/master/LICENSE). Les illustrations sont délivrées sous license [CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr).
+Code copyright 2016 Matthieu Bué. Le code est délivré sous [licence MIT](https://github.com/Twikito/twikito.com/blob/master/LICENSE). Les illustrations sont délivrées sous licence [CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr).
 
 Notes de codage
 -----------
 
-Le site [twikito.com](http://twikito.com) est codé à la main dans les règles de l'art, sans CMS et sans plugin JavaScript. La plupart des fonctionalités ont été codées par CSS uniquement.
+Le site [twikito.com](http://twikito.com) est codé à la main dans les règles de l'art, sans CMS et sans plugin JavaScript. La plupart des fonctionnalités ont été codées par CSS uniquement.
 
 Le code étant en grande partie expérimentale et démonstrative, pour des questions de maintenabilité, je commente ici les réflexions et choix des techniques employées.
 
@@ -39,7 +39,7 @@ Le code étant en grande partie expérimentale et démonstrative, pour des quest
 * [L'animation du logo](#lanimation-du-logo)
 * [Les zones de travers](#les-zones-de-travers)
 * [Le texte défilant](#le-texte-défilant)
-* [L'appartion des éléments au scroll](#lappartion-des-éléments-au-scroll)
+* [L'apparition des éléments au scroll](#lapparition-des-éléments-au-scroll)
 * [Les panneaux de réalisation](#les-panneaux-de-réalisation)
 * [La lightbox](#la-lightbox)
 * [Le scroll automatique](#le-scroll-automatique)
@@ -55,7 +55,7 @@ Toutes les illustrations du site sont réalisées par SVG. Pour des questions d'
 
 _L'animation de SVG par transformations reste encore assez complexe via CSS, c'est pourquoi j'ai choisi d'animer des objets HTML._
 
-L'icône &laquo; burger &raquo; est réalisée avec l'élément ``.navicon``. Un élément enfant et deux pseudo-éléments adjacents sur lesquels j'applique une transformation pour obtenir la flêche.
+L'icône &laquo; burger &raquo; est réalisée avec l'élément ``.navicon``. Un élément enfant et deux pseudo-éléments adjacents sur lesquels j'applique une transformation pour obtenir la flèche.
 
 ### La barre de navigation
 
@@ -101,9 +101,9 @@ J'applique enfin une transformation ``skew`` légèrement différente sur chacun
 
 L'animation du texte défilant se fait par CSS uniquement. Un simple élément en ``inline-block`` et ``overflow: hidden``, et un enfant multiligne animé sur la transformation ``translateY``.
 
-### L'appartion des éléments au scroll
+### L'apparition des éléments au scroll
 
-_Pour cette partie, j'ai voulu me séparer d'un plugin JavaScript devenu dépassé, qui n'était pas suffisemment permissif quant aux effets à configurer. Je l'ai donc recodé et optimisé moi-même._
+_Pour cette partie, j'ai voulu me séparer d'un plugin JavaScript devenu dépassé, qui n'était pas suffisamment permissif quant aux effets à configurer. Je l'ai donc recodé et optimisé moi-même._
 
 Cette animation se fait par JavaScript (sans jQuery) et CSS.
 
@@ -137,7 +137,7 @@ _La plupart des Lightbox ne sont que peu configurables sur les effets, et lourds
 
 Le zoom des captures par lightbox se fait via CSS uniquement.
 
-Ici, j'ai préparé une imbrication de quatre ``<span>`` qui ont chacune un objectif spécifique : overlay, effet, conteneur et image. Le fait que le conteneur soit en ``display: none`` par défaut fait que l'image d'arrière plan de son enfant ne se charge pas de suite. Je simule ainsi un lazyload et optimise la performance.
+Ici, j'ai préparé une imbrication de quatre ``<span>`` qui ont chacune un objectif spécifique : overlay, effet, conteneur et image. Le fait que le conteneur soit en ``display: none`` par défaut fait que l'image d'arrière-plan de son enfant ne se charge pas de suite. Je simule ainsi un lazyload et optimise la performance.
 
 Enfin, lors du focus du lien adjacent, j'applique les styles, ce qui charge l'image.
 
@@ -149,7 +149,7 @@ _[Voir la démo isolée pour plus de détails](http://codepen.io/Twikito/full/JY
 
 Le scroll automatique vers les ancres se fait via JavaScript.
 
-Au clic sur un lien commencant par ``#``, je récupère l'ancre cible, puis la valeur du scroll de cette cible. J'anime ensuite le scroll du ``body`` vers cette ancre, puis change l'URL de la page pour garder l'historique. Pas de plugin, juste cinq lignes de code.
+Au clic sur un lien commençant par ``#``, je récupère l'ancre cible, puis la valeur du scroll de cette cible. J'anime ensuite le scroll du ``body`` vers cette ancre, puis change l'URL de la page pour garder l'historique. Pas de plugin, juste cinq lignes de code.
 
 _[Voir la démo isolée pour plus de détails](http://codepen.io/Twikito/pen/ejosB)._
 
@@ -159,11 +159,11 @@ _Une page 404 n'a que peu d'intérêt pour un site en single page. On peut donc 
 
 La page 404 a été assez complexe à réaliser.
 
-L'illustration s'adapte à la taille de l'écran. Ainsi, si vous redimmensionnez votre navigateur, vous verrez la mouche se faire attraper, et approcher dangereusement d'une mort certaine :D
+L'illustration s'adapte à la taille de l'écran. Ainsi, si vous redimensionnez votre navigateur, vous verrez la mouche se faire attraper, et approcher dangereusement d'une mort certaine :D
 
 Pour obtenir cet effet, il faut une imbrication d'éléments, dimensionnés en pourcentage de la taille totale de l'illustration, avec débordements cachés, pour déplacer ces éléments par rapport à une référence : la mouche.
 
-J'ai placé un lien par dessus, son contenu dissimulé (et pas caché) pour rester lisible pour les lecteurs d'écran. Au survol et focus, j'applique une animation de filtre teinte en répétition infinie aux SVG adjacents directs. Aussi, je lance la lecture du son pour un effet des plus WTF.
+J'ai placé un lien par-dessus, son contenu dissimulé (et pas caché) pour rester lisible pour les lecteurs d'écran. Au survol et focus, j'applique une animation de filtre teinte en répétition infinie aux SVG adjacents directs. Aussi, je lance la lecture du son pour un effet des plus WTF.
 
 ### Le code Konami
 
