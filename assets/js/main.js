@@ -1,4 +1,4 @@
-$(function() {
+(function() {
 
 	// Scroll Effect --------------------------------------------------------------------
 	// Usage: <foo data-(scrollEffectPrefix)="(class added when outside screen)" [ data-(scrollEffectPrefix)-repeat="('true'|'false'|max count)" data-(scrollEffectPrefix)-offset="(offset in px)" ]></foo>
@@ -74,20 +74,39 @@ $(function() {
 	window.addEventListener('scroll', debounce(scrollEffect, 10), true);
 
 	// Scroll animation -----------------------------------------------------------------
-	jQuery.extend( jQuery.easing,{ // Extract from jQuery Easing v1.3
-		easeInOutQuint: function (x, t, b, c, d) {
-			if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
-			return c/2*((t-=2)*t*t*t*t + 2) + b;
-		}
-	});
+	function loadScript (url, callback) {
+		var script = document.createElement('script');
+		var loaded = false;
 
-	$("a[href^='#']").click(function(e){
-		e.preventDefault();
-		var anchor = this.hash;
-		if(anchor === ""){ return false; }
-		// Add exceptions here
-		$('html,body').stop().animate({'scrollTop':Math.ceil($(anchor).offset().top)},1000,'easeInOutQuint',function(){anchor=="#top"?window.location.hash='':window.location.hash=anchor;});
-	});
+		script.setAttribute('src', url);
+		script.onreadystatechange = script.onload = function () {
+		if (!loaded && callback)
+			callback();
+			loaded = true;
+		}
+
+		document.head.appendChild(script);
+	}
+
+	function initSmoothScroll () {
+		var anchorsTab = document.body.querySelectorAll("a[href^='#']");
+		anchorsTab.forEach(function(anchor) {
+			anchor.setAttribute('data-scroll','');
+		});
+		loadScript(
+			'https://cdn.rawgit.com/cferdinandi/smooth-scroll/master/dist/js/smooth-scroll.min.js',
+			function(){
+				smoothScroll.init({
+					selector: '[data-scroll]',
+					speed: 1000,
+					easing: 'easeInOutQuint',
+					updateURL: true
+				});
+			}
+		);
+	}
+
+	document.addEventListener('DOMContentLoaded', initSmoothScroll);
 
 	// Form ajax submit -----------------------------------------------------------------
 	$('#form').on('submit', function(event) {
@@ -118,28 +137,27 @@ $(function() {
 	});
 
 	// Konami code ----------------------------------------------------------------------
-	function konami(fn) {
-		var input = "";
-		var pattern = "38384040373937396665";
-		$(document).keydown(function(e) {
-			//console.log(e.keyCode);
-			if(pattern.indexOf(e.keyCode) !== -1){
-				input += e.keyCode;
-				if(input.indexOf(pattern) !== -1){
-					fn();
-					input = "";
-				}
-			}else{
-				input = "";
+	function konami(callback) {
+		var keys = [];
+		var konami = '38,38,40,40,37,39,37,39,66,65';
+
+		document.addEventListener('keydown', function(e) {
+			keys.push(e.keyCode);
+			if (keys.toString().indexOf(konami) >= 0) {
+				keys = [];
+				callback && callback();
 			}
 		});
 	}
 	konami(function() {
-		$('head').append("<link rel='stylesheet' href='assets/css/konami.css?160719'>");
-		$('body').attr("contenteditable", "true");
+		var stylesheet = document.createElement('link');
+    	stylesheet.setAttribute('rel', 'stylesheet');
+    	stylesheet.setAttribute('href', 'assets/css/konami.css?160719');
+		document.head.appendChild(stylesheet);
+		document.body.setAttribute("contenteditable", "true");
 	});
 
 	// Oh! ------------------------------------------------------------------------------
 	console.log("            MMMMMM                              MMMMMM\n            MMMMMM                              MMMMMM\n            MMMMMM                              MMMMMM\nMMMMMM            MMMMMM                  MMMMMM            MMMMMM\nMMMMMM            MMMMMM                  MMMMMM            MMMMMM\nMMMMMM            MMMMMM                  MMMMMM            MMMMMM\nMMMMMM      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      MMMMMM\nMMMMMM      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      MMMMMM\nMMMMMM      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      MMMMMM\nMMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMM\nMMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMM\nMMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMM\nMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\nMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\nMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n            MMMMMM                              MMMMMM\n            MMMMMM                              MMMMMM\n            MMMMMM                              MMMMMM\n      MMMMMM                  MMMMMM                  MMMMMM\n      MMMMMM                  MMMMMM                  MMMMMM\n      MMMMMM                  MMMMMM                  MMMMMM\n                        MMMMMM\n                        MMMMMM\n                        MMMMMM\n                              MMMMMM\n                              MMMMMM\n                              MMMMMM\n                                    MMMMMM\n                                    MMMMMM\n                                    MMMMMM\n                              MMMMMM\n                              MMMMMM\n                              MMMMMM");
 
-});
+})();
