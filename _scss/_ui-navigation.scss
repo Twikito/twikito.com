@@ -16,7 +16,7 @@
 	&::before {
 		right: 0; display: block; width: $navitem-size * .66; height: .2em;
 		border-radius: .05em;
-		background: #fff;
+		background: $white;
 		transition: $default-duration $default-timing-function;
 	}
 }
@@ -38,6 +38,18 @@
 		.area {
 			position: fixed; top: 0; left: 0; z-index: 10; display: flex; width: $navitem-size; height: $navitem-size;
 			cursor: pointer;
+		}
+	}
+	&:not(:checked) {
+		@media (min-width: $media-breakpoint-md) {
+			& + label:hover ~ nav,
+			&:focus ~ nav {
+				transform: translateX(-$navitem-size + .5em);
+			}
+			& ~ nav a:focus span {
+				width: 8.5em;
+				transform: translateX($navitem-size);
+			}
 		}
 	}
 	&:checked {
@@ -66,8 +78,8 @@
 			a {
 				transform: translateX(0);
 			}
-			a {
-				@media (min-width: $media-breakpoint-md) {
+			@media (min-width: $media-breakpoint-md) {
+				a {
 					&:hover,
 					&:focus {
 						span {
@@ -79,9 +91,8 @@
 		}
 	}
 	@media (min-width: $media-breakpoint-md) {
-		&:not(:checked) + label:hover ~ nav,
-		&:not(:checked):focus ~ nav {
-			transform: translateX(-$navitem-size + .5em);
+		&:focus + label .area {
+			outline: 1px dotted $white;
 		}
 	}
 }
