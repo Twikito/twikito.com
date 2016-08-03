@@ -28,7 +28,7 @@ Code copyright 2016 Matthieu Bué. Le code est délivré sous [licence MIT](http
 Notes de codage
 -----------
 
-Le site [twikito.com](http://twikito.com) est codé à la main dans les règles de l'art, sans CMS et sans plugin JavaScript. La plupart des fonctionnalités ont été codées par CSS uniquement.
+Le site [twikito.com](http://twikito.com) est codé à la main dans les règles de l'art, sans CMS et sans plugin jQuery. La plupart des fonctionnalités ont été codées par CSS uniquement.
 
 Le code étant en grande partie expérimentale et démonstrative, pour des questions de maintenabilité, je commente ici les réflexions et choix des techniques employées.
 
@@ -64,6 +64,8 @@ _La navigation n'étant pas primordiale sur ce site en single page, j'ai fait le
 L'apparition/disparition de cette barre se fait par CSS uniquement.
 
 Je me sers d'un checkbox, converti en bouton via ``role='button'``. L'icône est placée dans un label qui est associé à ce checkbox. Le ``nav`` étant adjacent, je n'ai qu'à appliquer les transformations voulues à l'icône et la navigation au ``:checked`` du checkbox.
+
+Pour une question d'accessibilité, j'ai laissé la navigation accessible au clavier même lorsqu'elle est fermée.
 
 Une subtilité pour améliorer l'expérience utilisateur : sur mobile, j'ajoute un pseudo-élément au label qui recouvre tout le viewport, sous la navigation, ce qui permet ainsi de simplifier la fermeture de cette navigation.
 
@@ -149,9 +151,8 @@ _[Voir la démo isolée pour plus de détails](http://codepen.io/Twikito/full/JY
 
 Le scroll automatique vers les ancres se fait via JavaScript.
 
-Au clic sur un lien commençant par ``#``, je récupère l'ancre cible, puis la valeur du scroll de cette cible. J'anime ensuite le scroll du ``body`` vers cette ancre, puis change l'URL de la page pour garder l'historique. Pas de plugin, juste cinq lignes de code.
-
-_[Voir la démo isolée pour plus de détails](http://codepen.io/Twikito/pen/ejosB)._
+<del>Au clic sur un lien commençant par ``#``, je récupère l'ancre cible, puis la valeur du scroll de cette cible. J'anime ensuite le scroll du ``body`` vers cette ancre, puis change l'URL de la page pour garder l'historique. Pas de plugin, juste cinq lignes de code.</del>
+<ins>Pour cette partie, je me suis résolu à utiliser le script [smooth-scroll](https://github.com/cferdinandi/smooth-scroll) de [Chris Ferdinandi](https://github.com/cferdinandi) qui fait ça très bien sans jQuery.</ins>
 
 ### La page 404
 
@@ -173,6 +174,4 @@ Pour ça, je vous laisse voir par vous-même !
 
 ### Pour finir
 
-Mon seul regret est d'être encore dépendant de jQuery, notamment pour l'animation du scroll automatique&hellip;
-
-&hellip;pour le moment.
+Mon seul regret est d'être encore dépendant de jQuery&hellip; pour le moment.
