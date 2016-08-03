@@ -101,13 +101,15 @@ nav {
 	}
 }
 
-[id='navcheck']:checked ~ nav a {
+[id='navcheck'] {
 	@media (min-width: $media-breakpoint-md) {
-		&:hover,
-		&:focus {
-			span {
-				width: 10em !important;
-			}
+		&:not(:checked) ~ nav a:focus span,
+		&:checked ~ nav a:hover span,
+		&:checked ~ nav a:focus span {
+			width: 11em !important;
+		}
+		&:focus + label .area {
+			outline: none !important;
 		}
 	}
 }
