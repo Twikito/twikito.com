@@ -151,8 +151,7 @@ _[Voir la démo isolée pour plus de détails](http://codepen.io/Twikito/full/JY
 
 Le scroll automatique vers les ancres se fait via JavaScript.
 
-<del>Au clic sur un lien commençant par ``#``, je récupère l'ancre cible, puis la valeur du scroll de cette cible. J'anime ensuite le scroll du ``body`` vers cette ancre, puis change l'URL de la page pour garder l'historique. Pas de plugin, juste cinq lignes de code.</del>
-<ins>Pour cette partie, je me suis résolu à utiliser le script [smooth-scroll](https://github.com/cferdinandi/smooth-scroll) de [Chris Ferdinandi](https://github.com/cferdinandi) qui fait ça très bien sans jQuery.</ins>
+Auparavant, j'utilisais [mon script basé sur jQuery](http://codepen.io/Twikito/full/ejosB), mais je me suis résolu à utiliser [smooth-scroll](https://github.com/cferdinandi/smooth-scroll) de [Chris Ferdinandi](https://github.com/cferdinandi) qui fait ça très bien en vanilla JS.</ins>
 
 ### La page 404
 
