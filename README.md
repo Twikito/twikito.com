@@ -52,9 +52,9 @@ Le code étant en grande partie expérimentale et démonstrative, pour des quest
 
 Pour des questions de maintenabilité et d'accessibilité, tout le site, textes et illustrations sont dimensionnés en unités relatives : ``em``, ``rem`` et ``%``.
 
-Tout se passe à la base dans le fichier [_sass-typo.scss](_scss/_sass-typo.scss). Comme [l'explique raphaël](https://blog.goetter.fr/2016/07/05/lastuce-du-font-size-62-5-oui-non-ou-ca-depend/), en paramétrant la taille de police du ``<html>`` à ``0.625em``, je simplifie les calculs et j'obtiens un rapport de 10 partout. Ensuite, je spécifie un ratio en fonction de la taille de l'écran par media queries sur ``<body>``, et la cascade fait son œuvre.
+Tout se passe à la base dans le fichier [_sass-typo.scss](_scss/_sass-typo.scss). Comme [l'explique raphaël](https://blog.goetter.fr/2016/07/05/lastuce-du-font-size-62-5-oui-non-ou-ca-depend/), en paramétrant la taille de police du ``<html>`` à ``0.625em``, je simplifie les calculs et obtiens un rapport de 10 partout. Ensuite, je spécifie un ratio en fonction de la taille de l'écran par media queries sur ``<body>``, et la cascade fait son œuvre.
 
-Ainsi, les adaptations responsives sont plus simples et tout le site est un rapport de proportionnalité de la taille de police par défaut du navigateur&hellip; taille par défaut que vous avez peut-être modifiée vous-même d'ailleurs.
+Ainsi, les adaptations responsives sont plus simples, et tout le site est un rapport de proportionnalité de la taille de police par défaut du navigateur&hellip; taille par défaut que vous avez peut-être modifiée vous-même d'ailleurs.
 
 ### Les icônes
 
