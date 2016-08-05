@@ -4,59 +4,46 @@
 
 @media print {
 	body {
-		font-size: 1.2em;
+		font-size: 1em;
 	}
-	[role='banner'],
-	article {
-		padding: 5% 0;
+	body::before {
+		content: none;
 	}
-	body,
-	body::before,
-	article.green,
-	.skills section h3::before,
-	footer::before {
-		background: none;
-	}
-	.xp input + div section {
-		&,
-		h3 {
-			background: none;
-		}
-	}
-	html,
-	a,
-	[role='banner'] strong,
-	[role='banner'] h2,
-	article.green,
-	.contact span:nth-child(even) {
-		color: #000;
-	}
-	[role='banner'] p svg,
-	.social p svg {
-		fill: #000;
-	}
-	.xp .wrapper {
-		max-width: 53em;
-	}
-	.xp input + div section h3 {
-		padding-left: 0;
-	}
-	hr,
 	nav,
-	[id='navcheck']:checked ~ nav,
 	.navicon,
 	form,
 	footer a.totop {
 		display: none;
 	}
+	[role='banner'] {
+		padding: 2% 0;
+	}
+	.skills section {
+		margin-bottom: 2%;
+	}
+	article {
+		padding: 1% 0;
+	}
 	@page {
 		margin: 0.5cm;
 	}
 	p,h2,h3 {
-		orphans: 3;
-		widows: 3;
+		orphans: 1;
+		widows: 1;
 	}
-	h2,h3 {
+	h2,h3, section {
 		page-break-after: avoid;
+	}
+	.skills section:nth-child(odd) header,
+	.skills section:nth-child(even) header,
+	.talks ul span,
+	.xp section	h3,
+	.love p span,
+	.contact .m [class^='s']:nth-child(odd),
+	.contact .m [class^='s']:nth-child(even) {
+		&.outside {
+			transform: none;
+			opacity: 1;
+		}
 	}
 }
