@@ -89,7 +89,7 @@
 	}
 
 	function initSmoothScroll () {
-		var anchorsTab = document.body.querySelectorAll("a[href^='#']");
+		var anchorsTab = document.body.querySelectorAll("a[href^='#']:not([role='button'])");
 		anchorsTab.forEach(function(anchor) {
 			anchor.setAttribute('data-scroll','');
 		});
@@ -152,7 +152,7 @@
 	konami(function() {
 		var stylesheet = document.createElement('link');
     	stylesheet.setAttribute('rel', 'stylesheet');
-    	stylesheet.setAttribute('href', 'assets/css/konami.css?160719');
+    	stylesheet.setAttribute('href', 'assets/css/konami.css?160803');
 		document.head.appendChild(stylesheet);
 		document.body.setAttribute("contenteditable", "true");
 	});
