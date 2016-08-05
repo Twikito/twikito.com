@@ -32,6 +32,7 @@ Le site [twikito.com](http://twikito.com) est codé à la main dans les règles 
 
 Le code étant en grande partie expérimentale et démonstrative, pour des questions de maintenabilité, je commente ici les réflexions et choix des techniques employées.
 
+* [Le dimensionnement](#le-dimensionnement)
 * [Les icônes](#les-icônes)
 * [Le burger](#le-burger)
 * [La barre de navigation](#la-barre-de-navigation)
@@ -46,6 +47,14 @@ Le code étant en grande partie expérimentale et démonstrative, pour des quest
 * [La page 404](#la-page-404)
 * [Le code Konami](#le-code-konami)
 * [Pour finir](#pour-finir)
+
+### Le dimensionnement
+
+Pour des questions de maintenabilité et d'accessibilité, tout le site, textes et illustrations sont dimensionnés en unités relatives : ``em``, ``rem`` et ``%``.
+
+Tout se passe à la base dans le fichier [_sass-typo.scss](_scss/_sass-typo.scss). Comme [l'explique raphaël](https://blog.goetter.fr/2016/07/05/lastuce-du-font-size-62-5-oui-non-ou-ca-depend/), en paramétrant la taille de police du ``<html>`` à ``0.625em``, je simplifie les calculs et j'obtiens un rapport de 10 partout. Ensuite, je spécifie un ratio en fonction de la taille de l'écran par media queries sur ``<body>``, et la cascade fait son œuvre.
+
+Ainsi, les adaptations responsives sont plus simples et tout le site est un rapport de proportionnalité de la taille de police par défaut du navigateur&hellip; taille par défaut que vous avez peut-être modifiée vous-même d'ailleurs.
 
 ### Les icônes
 
