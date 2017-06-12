@@ -11,7 +11,7 @@ body {
 
 .wrapper {
 	max-width: $wrapper-width; margin-left: auto; margin-right: auto; padding-left: 1em; padding-right: 1em;
-	@media (min-width: $media-breakpoint-sm) {
+	@include media(">small") {
 		padding-left: 3.5em; padding-right: 3.5em;
 	}
 }

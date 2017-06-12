@@ -3,15 +3,15 @@ body::before {
 	background: rgba($darkgrey,.25);
 	content: '';
 	transform: skewY(-2deg);
-	@media (min-width: $media-breakpoint-xl) {
+	@include media(">x-large") {
 		height: 5em;
 	}
 }
 
-[role='banner'] {
+.banner {
 	padding: 18% 0;
 	text-align: center;
-	@media (min-width: $media-breakpoint-lg) {
+	@include media(">large") {
 		padding: 11% 0;
 	}
 	[id='logo'] {
@@ -30,7 +30,7 @@ body::before {
 		font-family: $default-font-family; font-style: $default-font-style; font-weight: $default-font-weight; line-height: 3em; text-transform: none; color: $grey-block-color;
 	}
 	a {
-		display: inline-block; width: .875em; height: .875em; margin: 0 .25em; padding: 0;
+		display: inline-block; width: 1em; height: 1em; margin: 0 .5em; padding: 0;
 		&:hover,
 		&:focus {
 			svg {

@@ -1,6 +1,6 @@
 [id='form'] {
 	position: relative; margin: 10% 0 0;
-	@media (min-width: $media-breakpoint-lg) {
+	@include media(">large") {
 		float: left; width: 45%; margin: 0;
 	}
 	input,

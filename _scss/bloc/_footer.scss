@@ -20,7 +20,7 @@ footer {
 		&:focus {
 			background: $white;
 		}
-		@media (min-width: $media-breakpoint-xl) {
+		@include media(">x-large") {
 			padding: 1.5em;
 		}
 	}

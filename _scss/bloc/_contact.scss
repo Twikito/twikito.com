@@ -1,6 +1,6 @@
 .contact {
 	.wrapper {
-		@media (min-width: $media-breakpoint-lg) {
+		@include media(">large") {
 			display: flex;
 			flex-flow: row-reverse nowrap; align-items: center;
 			& > * {
@@ -10,7 +10,7 @@
 	}
 	.m {
 		text-align: center;
-		@media (min-width: $media-breakpoint-lg) {
+		@include media(">large") {
 			margin-left: 10%;
 		}
 		a {

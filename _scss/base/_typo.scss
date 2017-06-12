@@ -13,16 +13,16 @@ html {
 
 body {
 	font-size: $media-ratio-xs * $defaut-font-size;
-	@media (min-width: $media-breakpoint-sm) {
+	@include media(">small") {
 		font-size: $media-ratio-sm * $defaut-font-size;
 	}
-	@media (min-width: $media-breakpoint-md) {
+	@include media(">medium") {
 		font-size: $media-ratio-md * $defaut-font-size;
 	}
-	@media (min-width: $media-breakpoint-lg) {
+	@include media(">large") {
 		font-size: $media-ratio-lg * $defaut-font-size;
 	}
-	@media (min-width: $media-breakpoint-xl) {
+	@include media(">x-large") {
 		font-size: $media-ratio-xl * $defaut-font-size;
 	}
 }
@@ -48,7 +48,7 @@ p, ul, ol, dl, blockquote, pre, td, th, label, textarea, caption {
 
 .amp {
 	font-family: $amp-font-family; font-weight: $amp-font-weight; font-style: $amp-font-style;
-	@media (min-width: $media-breakpoint-xl) {
+	@include media(">x-large") {
 		font-size: 1.025em;
 	}
 }

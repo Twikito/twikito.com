@@ -6,7 +6,7 @@
 		svg {
 			display: block; width: 2em; height: $default-line-height * 1em; margin: 0 auto .5em;
 			fill: #fff;
-			@media (min-width: $media-breakpoint-lg) {
+			@include media(">large") {
 				position: absolute; top: -.4em; left: -1.2em; margin: 0;
 			}
 		}

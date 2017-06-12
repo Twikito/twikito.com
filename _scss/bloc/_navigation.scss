@@ -4,7 +4,7 @@ nav {
 	transform: translate3d(0,0,0); /* Hardware acceleration */
 	transform: translateX(-11.5em);
 	transition: $default-duration $default-timing-function;
-	@media (min-width: $media-breakpoint-sm) {
+	@include media(">small") {
 		width: $navitem-size;
 		background: rgba($darkgrey,.6);
 		transform: translateX(-$navitem-size);
@@ -16,13 +16,13 @@ nav {
 		position: relative; display: block; width: 11.5em; height: $navitem-size;
 		transform: translateX(-100%);
 		color: $white; text-decoration: none;
-		@media (min-width: $media-breakpoint-sm) {
+		@include media(">small") {
 			width: $navitem-size;
 		}
 		&:hover,
 		&:focus {
 			opacity: 1;
-			@media (min-width: $media-breakpoint-md) {
+			@include media(">medium") {
 				background-color: rgba($darkgrey,.5);
 			}
 		}
@@ -35,10 +35,10 @@ nav {
 			display: inline-block;
 			line-height: $navitem-size; white-space: nowrap;
 			vertical-align: top;
-			@media (min-width: $media-breakpoint-sm) {
+			@include media(">small") {
 				display: none;
 			}
-			@media (min-width: $media-breakpoint-md) {
+			@include media(">medium") {
 				position: absolute; top: 0; bottom: 0; left: 100%; display: block; width: 0; overflow: hidden;
 				background: rgba($darkgrey,.75);
 				text-indent: 1em;

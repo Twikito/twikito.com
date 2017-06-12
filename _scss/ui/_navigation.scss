@@ -30,7 +30,7 @@
 			background: rgba($darkgrey,.4);
 			content: ''; opacity: 0; pointer-events: none;
 			transition: opacity $default-duration $default-timing-function;
-			@media (min-width: $media-breakpoint-sm) {
+			@include media(">small") {
 				display: none;
 				content: none;
 			}
@@ -41,7 +41,7 @@
 		}
 	}
 	&:not(:checked) {
-		@media (min-width: $media-breakpoint-md) {
+		@include media(">medium") {
 			& + label:hover ~ nav,
 			&:focus ~ nav {
 				transform: translateX(-$navitem-size + .5em);
@@ -78,7 +78,7 @@
 			a {
 				transform: translateX(0);
 			}
-			@media (min-width: $media-breakpoint-md) {
+			@include media(">medium") {
 				a {
 					&:hover,
 					&:focus {
@@ -90,7 +90,7 @@
 			}
 		}
 	}
-	@media (min-width: $media-breakpoint-md) {
+	@include media(">medium") {
 		&:focus + label .area {
 			outline: 1px dotted $white;
 		}

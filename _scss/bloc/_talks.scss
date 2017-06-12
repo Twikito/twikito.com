@@ -7,13 +7,13 @@
 		list-style: none;
 		li {
 			margin: 1em 0;
-			@media (min-width: $media-breakpoint-lg) {
+			@include media(">large") {
 				display: flex; margin: 1.5em 0;
 				flex-flow: row nowrap; justify-content: flex-start; align-items: stretch;
 			}
 		}
 		a {
-			@media (min-width: $media-breakpoint-lg) {
+			@include media(">large") {
 				margin-left: 2em;
 			}
 		}
@@ -22,7 +22,7 @@
 			&.outside {
 				transform: translateX(2em);
 			}
-			@media (min-width: $media-breakpoint-lg) {
+			@include media(">large") {
 				position: relative; padding: 0 .5em;
 				flex: 0 0 10.5em;
     			background: $lightgrey;

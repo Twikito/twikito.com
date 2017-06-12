@@ -1,18 +1,11 @@
 /*!important !important !important ^^
 */
-
-@import "sass-variables";
+@import "vendors/ceaser/ceaser";
+@import "scss/config";
+@import "vendors/include-media/include-media";
 
 $retro-color : #0f0;
 $retro-font  : "Mono0755", "Courier New", Courier, monospace;
-
-/* ==========================================================================
-   Animations
-   ========================================================================== */
-
-@keyframes blink {
-	50% { opacity: 0; }
-}
 
 /* ==========================================================================
    Retro font
@@ -102,7 +95,7 @@ nav {
 }
 
 [id='navcheck'] {
-	@media (min-width: $media-breakpoint-md) {
+	@include media(">medium") {
 		&:not(:checked) ~ nav a:focus span,
 		&:checked ~ nav a:hover span,
 		&:checked ~ nav a:focus span {
@@ -145,14 +138,9 @@ article {
 	}
 }
 
-[role='banner'] {
+.banner {
 	h1 {
 		font-size: 2.7em;
-//		strong::after {
-//			display: inline-block !important; margin-right: -.6em !important;
-//			content: "|" !important;
-//			animation: blink 1s steps(1) infinite !important;
-//		}
 	}
 	a {
 		width: auto !important; height: auto !important;
@@ -229,7 +217,7 @@ article {
 		max-width: $wrapper-width !important;
 	}
 	ul span {
-		@media (min-width: $media-breakpoint-lg) {
+		@include media(">large") {
 			flex: 0 0 15em !important;
 		}
 	}

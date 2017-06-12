@@ -32,13 +32,13 @@ a {
 
 abbr[title] {
 	text-decoration: none;
-	@media (min-width: $media-breakpoint-xl) {
+	@include media(">x-large") {
 		border-bottom: 1px dotted;
 	}
 }
 
 a abbr[title] {
-	@media (min-width: $media-breakpoint-xl) {
+	@include media(">x-large") {
 		border-bottom: none;
 	}
 }

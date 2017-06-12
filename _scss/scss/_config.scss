@@ -70,6 +70,15 @@ $media-ratio-md         : 1.8;
 $media-ratio-lg         : 2.0;
 $media-ratio-xl         : 2.2;
 
+// Responsive breakpoints for Include Media
+
+$breakpoints            : (
+	'small'             : $media-breakpoint-sm,
+ 	'medium'            : $media-breakpoint-md,
+ 	'large'             : $media-breakpoint-lg,
+	'x-large'           : $media-breakpoint-xl
+);
+
 
 // Fonts
 
@@ -92,7 +101,6 @@ $wrapper-width          : 53em;
 $article-margin         : 6%;
 
 $default-duration       : .25s;
-@import "vendor/ceaser/ceaser";
 $default-timing-function: cubic-bezier(unquote($easeInOutQuart));
 
 $quote-duration         : 10s;

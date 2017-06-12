@@ -11,7 +11,7 @@ article {
 	}
 	& > header {
 		display: none;
-		@media (min-width: $media-breakpoint-md) {
+		@include media(">medium") {
 			position: absolute; top: 0; left: 0; display: block; width: $navitem-size; height: $navitem-size;
 		}
 		h2 {

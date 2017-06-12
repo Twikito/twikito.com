@@ -2,7 +2,7 @@
    Print Media Query
    ========================================================================== */
 
-@media print {
+@include media("print") {
 	body {
 		font-size: 1em;
 	}
@@ -15,7 +15,7 @@
 	footer a.totop {
 		display: none;
 	}
-	[role='banner'] {
+	.banner {
 		padding: 2% 0;
 	}
 	.skills section {
