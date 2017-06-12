@@ -36,8 +36,8 @@
 
 <!-- Troll alert ! 😄 -->
 <!--[if gt IE 9]><!-->
-	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans+Narrow:700|Droid+Serif:400i|Ovo&text=&amp;">
-	<link rel="stylesheet" href="assets/css/main.css?160805">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans+Narrow:700%7CDroid+Serif:400i%7COvo&text=&amp;">
+	<link rel="stylesheet" href="assets/css/main.css?170612">
 <!--<![endif]-->
 
 </head>
@@ -51,7 +51,7 @@
 		</span>
 	</label>
 
-	<header id="top" role="banner" itemscope itemtype="http://schema.org/Person">
+	<header id="top" class="banner" itemscope itemtype="http://schema.org/Person">
 
 		<!-- Verbiage dithyrambique de SVG ^^ -->
 		<svg id="logo" viewBox="0 0 490 450">
@@ -236,7 +236,7 @@
 		</p>
 	</header>
 
-	<nav role="navigation">
+	<nav>
 		<a href="#" tabindex="2">
 			<svg><use aria-labelledby="nav-item-1" xlink:href="assets/img/layout/symbol-defs.svg#icon-home" /></svg>
 			<span id="nav-item-1" lang="en">Home</span>
@@ -848,28 +848,26 @@
 		</header>
 		<div class="wrapper">
 			<p>
-				<a itemprop="sameAs" href="//twitter.com/twikito" title="Matthieu Bué sur Twitter (nouvelle page)" target="_blank">
+				<a href="//twitter.com/twikito" title="Matthieu Bué sur Twitter (nouvelle page)" target="_blank">
 					<span class="visuallyhidden">Twitter</span>
 					<svg><use xlink:href="assets/img/layout/symbol-defs.svg#icon-twitter" /></svg>
 				</a>
-				<a itemprop="sameAs" href="//linkedin.com/in/matthieubue" title="Matthieu Bué sur LinkedIn (nouvelle page)" target="_blank">
+				<a href="//linkedin.com/in/matthieubue" title="Matthieu Bué sur LinkedIn (nouvelle page)" target="_blank">
 					<span class="visuallyhidden">LinkedIn</span>
 					<svg><use xlink:href="assets/img/layout/symbol-defs.svg#icon-linkedin" /></svg>
 				</a>
-				<a itemprop="sameAs" href="//codepen.io/Twikito" title="Matthieu Bué sur Codepen (nouvelle page)" target="_blank">
+				<a href="//codepen.io/Twikito" title="Matthieu Bué sur Codepen (nouvelle page)" target="_blank">
 					<span class="visuallyhidden">CodePen</span>
 					<svg><use xlink:href="assets/img/layout/symbol-defs.svg#icon-codepen" /></svg>
 				</a>
-				<a itemprop="sameAs" href="//speakerdeck.com/twikito" title="Matthieu Bué sur Speaker Deck (nouvelle page)" target="_blank">
+				<a href="//speakerdeck.com/twikito" title="Matthieu Bué sur Speaker Deck (nouvelle page)" target="_blank">
 					<span class="visuallyhidden">Speaker Deck</span>
 					<svg><use xlink:href="assets/img/layout/symbol-defs.svg#icon-speakerdeck" /></svg>
 				</a>
-				<a itemprop="sameAs" href="//play.spotify.com/user/1131199865" title="Matthieu Bué sur Spotify (nouvelle page)" target="_blank">
+				<a href="//play.spotify.com/user/1131199865" title="Matthieu Bué sur Spotify (nouvelle page)" target="_blank">
 					<span class="visuallyhidden">Spotify</span>
 					<svg><use xlink:href="assets/img/layout/symbol-defs.svg#icon-spotify" /></svg>
 				</a>
-				<link itemprop="sameAs" href="//facebook.com/matthieu.bue">
-				<link itemprop="sameAs" href="//google.com/+matthieubue">
 			</p>
 		</div>
 	</article>
@@ -895,8 +893,8 @@
 				</a>
 			</div>
 			<form id="form">
-				<input type="text" name="i1" title="Entrez votre nom" placeholder="Votre nom" autocapitalize="on" autocorrect="off" required pattern="^[a-zA-ZàáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ\s]+$">
-				<input type="email" name="i2" title="Entrez votre adresse email" placeholder="Votre email" autocapitalize="off" autocorrect="off" required pattern="^([0-9a-zA-Z]+[-._+&amp;])*[0-9a-zA-Z]+@([-0-9a-zA-Z]+[.])+[a-zA-Z]{2,10}$">
+				<input type="text" name="i1" title="Entrez votre nom" placeholder="Votre nom" required pattern="^[a-zA-ZàáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ\s]+$">
+				<input type="email" name="i2" title="Entrez votre adresse email" placeholder="Votre email" required pattern="^([0-9a-zA-Z]+[-._+&amp;])*[0-9a-zA-Z]+@([-0-9a-zA-Z]+[.])+[a-zA-Z]{2,10}$">
 				<input type="text" name="i3" class="hidden" aria-hidden="true" tabindex="-1">
 				<textarea name="t" title="Entrez votre message" placeholder="Votre message" required></textarea>
 				<button class="biggest" title="Envoyer votre message">Hop !</button>
@@ -904,7 +902,7 @@
 		</div>
 	</article>
 
-	<footer role="contentinfo">
+	<footer>
 		<div class="wrapper">
 			<p class="smaller">
 				<a class="totop" href="#" title="Retourner en haut">
