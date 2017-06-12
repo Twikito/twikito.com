@@ -23,7 +23,7 @@ Le site [twikito.com](http://twikito.com) utilise [Autoprefixer](https://github.
 Copyright et licence
 -----------
 
-Code copyright 2016 Matthieu Bué. Le code est délivré sous [licence MIT](https://github.com/Twikito/twikito.com/blob/master/LICENSE). Les illustrations sont délivrées sous licence [CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr).
+Code copyright 2017 Matthieu Bué. Le code est délivré sous [licence MIT](https://github.com/Twikito/twikito.com/blob/master/LICENSE). Les illustrations sont délivrées sous licence [CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr).
 
 Notes de codage
 -----------
