@@ -89,18 +89,12 @@
 	}
 
 	function initSmoothScroll () {
-		var anchorsTab = document.body.querySelectorAll("a[href^='#']:not([role='button'])");
-		anchorsTab.forEach(function(anchor) {
-			anchor.setAttribute('data-scroll','');
-		});
 		loadScript(
 			'https://cdn.rawgit.com/cferdinandi/smooth-scroll/master/dist/js/smooth-scroll.min.js',
 			function(){
-				smoothScroll.init({
-					selector: '[data-scroll]',
+				var scroll = new SmoothScroll("a[href^='#']:not([role='button'])",{
 					speed: 1000,
-					easing: 'easeInOutQuint',
-					updateURL: true
+					easing: 'easeInOutQuint'
 				});
 			}
 		);
