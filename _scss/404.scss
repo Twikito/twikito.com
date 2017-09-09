@@ -21,10 +21,12 @@ body {
 
 
 .frog-container {
-	position: relative; margin: 1em;
+	position: relative;
+	margin: 1em;
 	flex: 0 1 75em;
 	a {
-		position: relative; z-index: 5; display: block; width: 100%; max-width: 45em; margin: 0; margin-left: auto; padding: 0; overflow: hidden;
+		position: relative; z-index: 5;
+		display: block; width: 100%; max-width: 45em; margin: 0; margin-left: auto; padding: 0; overflow: hidden;
 		border-radius: 50%; border: 0; outline: 0;
 		background: none;
 		&::before {
@@ -44,7 +46,8 @@ body {
 	}
 	.frog-bot,
 	.frog-top {
-		position: absolute; top: 0; right: 0; bottom: 0; max-width: 45em;
+		position: absolute; top: 0; right: 0; bottom: 0;
+		max-width: 45em;
 	}
 	.frog-bot {
 		z-index: 0;
@@ -54,25 +57,29 @@ body {
 	}
 }
 .tongue-container {
-	position: absolute; top: 38.66%; left: 0; right: 31.66%; z-index: 1; display: block; overflow: hidden;
+	position: absolute; top: 38.66%; left: 0; right: 31.66%; z-index: 1;
+	display: block; overflow: hidden;
 	@media (min-width: 47em) {
 		top: 17.4em; right: 14.25em;
 	}
 	.tongue {
-		position: relative; display: block; max-width: 49.5em; margin-left: auto; overflow: hidden;
+		position: relative;
+		display: block; max-width: 49.5em; margin-left: auto; overflow: hidden;
 		&::before {
 			display: block; padding-bottom: 25.6%;
 			content: '';
 		}
 		svg {
-			position: absolute; bottom: 0; left: 0; width: 160.96%; height: 160.96%;
+			position: absolute; bottom: 0; left: 0;
+			width: 160.96%; height: 160.96%;
 			@media (min-width: 47em) {
 				width: 49.5em; height: 12.75em;
 			}
 		}
 	}
 	.fly {
-		position: absolute; bottom: 5%; left: 2%; z-index: 1; width: 12.20%; height: 87.11%; display: block;
+		position: absolute; bottom: 5%; left: 2%; z-index: 1;
+		width: 12.20%; height: 87.11%; display: block;
 		@media (min-width: 47em) {
 			width: 3.75em; height: 6.9em;
 		}

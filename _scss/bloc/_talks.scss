@@ -23,7 +23,8 @@
 				transform: translateX(2em);
 			}
 			@include media(">large") {
-				position: relative; padding: 0 .5em;
+				position: relative;
+				padding: 0 .5em;
 				flex: 0 0 10.5em;
     			background: $lightgrey;
 				&.outside {

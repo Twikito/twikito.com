@@ -1,5 +1,6 @@
 [id='form'] {
-	position: relative; margin: 10% 0 0;
+	position: relative;
+	margin: 10% 0 0;
 	@include media(">large") {
 		float: left; width: 45%; margin: 0;
 	}
@@ -32,10 +33,12 @@
 		}
 	}
 	.ans-frame {
-		position: absolute; top: 0; right: 0; bottom: -.25em; left: 0; display: none;
+		position: absolute; top: 0; right: 0; bottom: -.25em; left: 0;
+		display: none;
 	}
 	.ans-bloc {
-		position: absolute; top: 0; right: 0; bottom: 0; left: 0; display: flex;
+		position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+		display: flex;
 		background: rgba($default_bg, .9);
 		text-align: center;
 	}

@@ -1,5 +1,6 @@
 .navicon {
-	position: relative; margin: auto;
+	position: relative;
+	margin: auto;
 	&::after,
 	&::before {
 		position: absolute; z-index: -1;
@@ -36,7 +37,8 @@
 			}
 		}
 		.area {
-			position: fixed; top: 0; left: 0; z-index: 10; display: flex; width: $navitem-size; height: $navitem-size;
+			position: fixed; top: 0; left: 0; z-index: 10;
+			display: flex; width: $navitem-size; height: $navitem-size;
 			cursor: pointer;
 		}
 	}

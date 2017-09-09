@@ -1,10 +1,12 @@
 hr {
-	position: relative; z-index: -5; display: block; height: 5em; margin: 0;
+	position: relative; z-index: -5;
+	display: block; height: 5em; margin: 0;
 	border: 0;
 	background: darken($green-block-bg, 10%);
 	&::before,
 	&::after {
-		position: absolute; z-index: 1; left: 0; right: 0; display: block; height: 5em;
+		position: absolute; z-index: 1; left: 0; right: 0;
+		display: block; height: 5em;
 		content: '';
 	}
 	&::before {

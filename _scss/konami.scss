@@ -149,7 +149,8 @@ article {
 			display: none !important;
 		}
 		span {
-			position: static !important; width: auto !important; height: auto !important; margin: auto !important; overflow: visible !important;
+			position: static !important;
+			width: auto !important; height: auto !important; margin: auto !important; overflow: visible !important;
 			clip: auto !important;
 			font-size: .5em; text-decoration: underline;
 		}
@@ -230,7 +231,8 @@ article {
 		display: none !important;
 	}
 	span {
-		position: static !important; display: block !important; width: auto !important; height: auto !important; margin: auto !important; overflow: visible !important;
+		position: static !important;
+		display: block !important; width: auto !important; height: auto !important; margin: auto !important; overflow: visible !important;
 		clip: auto !important;
 	}
 }

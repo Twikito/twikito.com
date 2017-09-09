@@ -1,5 +1,6 @@
 body::before {
-	position: fixed; top: -3.5em; left: 0; right: 0; z-index: 7; display: block; height: 6em;
+	position: fixed; top: -3.5em; left: 0; right: 0; z-index: 7;
+	display: block; height: 6em;
 	background: rgba($darkgrey,.25);
 	content: '';
 	transform: skewY(-2deg);

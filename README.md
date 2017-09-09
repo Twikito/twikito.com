@@ -32,6 +32,7 @@ Le site [twikito.com](http://twikito.com) est codé à la main dans les règles 
 
 Le code étant en grande partie expérimentale et démonstrative, pour des questions de maintenabilité, je commente ici les réflexions et choix des techniques employées.
 
+* [Une charte de codage](#une-charte-de-codage)
 * [Le dimensionnement](#le-dimensionnement)
 * [Les icônes](#les-icônes)
 * [Le burger](#le-burger)
@@ -47,6 +48,28 @@ Le code étant en grande partie expérimentale et démonstrative, pour des quest
 * [La page 404](#la-page-404)
 * [Le code Konami](#le-code-konami)
 * [Pour finir](#pour-finir)
+
+### Une charte de codage
+
+Pour des questions de maintenabilité, il est important de définir une charte de codage en SCSS. Ainsi fait, il est beaucoup plus simple de retrouver et comprendre ce code, pour soi-même, mais aussi pour toute personne amenée à le lire.
+
+Ma façon de coder, élaborée au fil de mon expérience, se définit ainsi :
+
+```css
+css-selector {
+	properties line 1: position styles;
+	properties line 2: box styles;
+	properties line 3: flex and grid styles;
+	properties line 4: transform styles;
+	properties line 5: border styles;
+	properties line 6: background styles;
+	properties line 7: text styles;
+	properties line 8: other styles;
+	properties line 9: animation and transition styles;
+}
+```
+
+Ainsi, chaque propriété est rangée sur la même ligne que ses propriétés dépendantes, et chaque règle ne fera au maximum que neuf lignes de code. Au fil du temps, j'ai même fini par ranger les propriétés de chaque ligne dans un certain ordre.
 
 ### Le dimensionnement
 

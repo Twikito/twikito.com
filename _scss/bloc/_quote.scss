@@ -1,13 +1,15 @@
 .quote {
 	text-align: center;
 	p {
-		position: relative; display: inline-block; margin: 0;
+		position: relative;
+		display: inline-block; margin: 0;
 		line-height: 1.5em;
 		svg {
 			display: block; width: 2em; height: $default-line-height * 1em; margin: 0 auto .5em;
 			fill: #fff;
 			@include media(">large") {
-				position: absolute; top: -.4em; left: -1.2em; margin: 0;
+				position: absolute; top: -.4em; left: -1.2em;
+				margin: 0;
 			}
 		}
 		& > span {

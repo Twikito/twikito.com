@@ -1,16 +1,17 @@
 /* ==========================================================================
    Sass config file
 
-   Declaration chart:
-   foo {
-       line 1: box styles;
-       line 2: flex styles;
-       line 3: transform styles;
-       line 4: border styles;
-       line 5: background styles;
-       line 6: text styles;
-       line 7: other styles;
-       line 8: animation and transition styles;
+   Coding scheme:
+   css-selector {
+       properties line 1: position styles;
+       properties line 2: box styles;
+       properties line 3: flex and grid styles;
+       properties line 4: transform styles;
+       properties line 5: border styles;
+       properties line 6: background styles;
+       properties line 7: text styles;
+       properties line 8: other styles;
+       properties line 9: animation and transition styles;
    }
    ========================================================================== */
 
