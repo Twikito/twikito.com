@@ -37,7 +37,7 @@ Le code étant en grande partie expérimentale et démonstrative, pour des quest
 * [Les icônes](#les-icônes)
 * [Le burger](#le-burger)
 * [La barre de navigation](#la-barre-de-navigation)
-* [La navigation responsive](#La-navigation-responsive)
+* [La navigation responsive](#la-navigation-responsive)
 * [L'animation du logo](#lanimation-du-logo)
 * [Les zones de travers](#les-zones-de-travers)
 * [Le texte défilant](#le-texte-défilant)
