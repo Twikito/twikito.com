@@ -355,6 +355,13 @@ AddDefaultCharset utf-8
 #    RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 # </IfModule>
 
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteCond %{HTTP:X-Forwarded-Proto} !https
+	RewriteCond %{HTTPS} off
+	RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
 # ----------------------------------------------------------------------
 # | Suppressing / Forcing the `www.` at the beginning of URLs          |
 # ----------------------------------------------------------------------
@@ -581,9 +588,9 @@ AddDefaultCharset utf-8
 # https://tools.ietf.org/html/draft-ietf-websec-strict-transport-sec-14#section-6.1
 # http://blogs.msdn.com/b/ieinternals/archive/2014/08/18/hsts-strict-transport-security-attacks-mitigations-deployment-https.aspx
 
-# <IfModule mod_headers.c>
-#     Header always set Strict-Transport-Security "max-age=16070400; includeSubDomains"
-# </IfModule>
+ <IfModule mod_headers.c>
+     Header always set Strict-Transport-Security "max-age=16070400; includeSubDomains"
+ </IfModule>
 
 # ----------------------------------------------------------------------
 # | Reducing MIME type security risks                                  |
