@@ -80,7 +80,7 @@
 			}
 		}
 		div div {
-			max-height: 50em; overflow: hidden;
+			max-height: 70em; overflow: hidden;
 			word-wrap: normal;
 			@include media(">large") {
 				max-height: 0;
