@@ -43,6 +43,7 @@ Le code étant en grande partie expérimentale et démonstrative, pour des quest
 * [Le texte défilant](#le-texte-défilant)
 * [L'apparition des éléments au scroll](#lapparition-des-éléments-au-scroll)
 * [Les panneaux de réalisation](#les-panneaux-de-réalisation)
+* [Les images responsives](#les-images-responsives)
 * [La lightbox](#la-lightbox)
 * [Le scroll automatique](#le-scroll-automatique)
 * [La page 404](#la-page-404)
@@ -139,7 +140,7 @@ L'animation du texte défilant se fait par CSS uniquement. Un simple élément e
 
 _Pour cette partie, j'ai voulu me séparer d'un plugin JavaScript devenu dépassé, qui n'était pas suffisamment permissif quant aux effets à configurer. Je l'ai donc recodé et optimisé moi-même._
 
-Cette animation se fait par JavaScript (sans jQuery) et CSS.
+Cette animation se fait par JavaScript (vanilla) et CSS.
 
 Tout d'abord, j'ajoute l'attribut ``data-se`` (configurable) à chaque élément que je veux animer, renseigné avec le nom de la classe CSS qui sera appliquée à cet élément lorsqu'il sera __en dehors__ de l'écran. De cette façon, c'est l'état initial de l'élément qui est affiché à l'écran.
 
@@ -157,6 +158,8 @@ Voici l'usage :
 
 _[Voir la démo isolée pour plus de détails](https://codepen.io/Twikito/pen/kXJwKN)._
 
+Notez que j'utilise cette même méthode pour mettre en pause l'animation du logo lorsqu'il est en dehors de l'écran.
+
 ### Les panneaux de réalisation
 
 _J'ai voulu cet effet par CSS pour plus de fluidité, mais aussi par challenge._
@@ -164,6 +167,13 @@ _J'ai voulu cet effet par CSS pour plus de fluidité, mais aussi par challenge._
 L'ouverture/fermeture de ces panneaux se fait via CSS uniquement.
 
 J'utilise un checkbox, caché par ``aria-hidden='true'``, avant chaque panneau, puis le titre dans le label associé. Ainsi, je n'ai qu'à appliquer les styles voulus, notamment ``min-height``, à chaque élément du panneau au ``:checked`` du checkbox.
+
+### Les images responsives
+
+Afin d'optimiser le chargement des images, j'ai utiliser les attributs ``sizes`` et ``srcset`` des éléments ``<img>``. Ainsi, le navigateur choisira quelle image est la plus appropriée en fonction de la largeur d'affichage.
+
+Ces sets d'images ont été générées grâce au [Responsive Image Breakpoints Generator v2.0
+](http://www.responsivebreakpoints.com/).
 
 ### La lightbox
 
@@ -205,4 +215,4 @@ Pour ça, je vous laisse voir par vous-même !
 
 ### Pour finir
 
-Mon seul regret est d'être encore dépendant de jQuery&hellip; pour le moment.
+Mon seul regret est d'être encore dépendant de jQuery pour l'envoi du formulaire en Ajax&hellip; pour le moment.
