@@ -108,6 +108,12 @@ $logo-strokes: (
 			fill: none;
 		}
 	}
+	&.outside {
+		opacity: initial;
+		[id="svg-fills"], [id="svg-strokes"] {
+			animation-play-state: paused;
+		}
+	}
 }
 
 
@@ -127,9 +133,14 @@ $logo-strokes: (
 		}
 	}
 
-	[id='logo'] [id='#{$id}'] {
-		stroke-dasharray: $length, $logo-dasharray-blank;
-		animation: unquote($id) $logo-animation-duration cubic-bezier(unquote($easing-function));
+	[id='logo'] {
+		[id='#{$id}'] {
+			stroke-dasharray: $length, $logo-dasharray-blank;
+			animation: unquote($id) $logo-animation-duration cubic-bezier(unquote($easing-function));
+		}
+		&.outside [id='#{$id}'] {
+			animation-play-state: paused;
+		}
 	}
 }
 
