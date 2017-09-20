@@ -1,17 +1,17 @@
-[twikito.com](http://twikito.com)
+[twikito.com](https://twikito.com)
 ===========
 
-Le site [twikito.com](http://twikito.com) est le webfolio de Matthieu Bué, Web et UI designer, développeur front-end et formateur.
+Le site [twikito.com](https://twikito.com) est le webfolio de Matthieu Bué, Web et UI designer, développeur front-end et formateur.
 
 Installation
 -----------
 
-Le site [twikito.com](http://twikito.com) est compilé avec l'application [Prepros](https://prepros.io/). Vous trouverez la config à la racine.
+Le site [twikito.com](https://twikito.com) est compilé avec l'application [Prepros](https://prepros.io/). Vous trouverez la config à la racine.
 
 Support navigateur
 -----------
 
-Le site [twikito.com](http://twikito.com) utilise [Autoprefixer](https://github.com/postcss/autoprefixer) pour rendre la plupart des fonctionnalités compatibles avec les anciennes versions des navigateurs. D'après [Can I Use](http://caniuse.com/), le site est compatible avec :
+Le site [twikito.com](https://twikito.com) utilise [Autoprefixer](https://github.com/postcss/autoprefixer) pour rendre la plupart des fonctionnalités compatibles avec les anciennes versions des navigateurs. D'après [Can I Use](https://caniuse.com/), le site est compatible avec :
 
 * Chrome
 * Firefox
@@ -28,7 +28,7 @@ Code copyright 2017 Matthieu Bué. Le code est délivré sous [licence MIT](http
 Notes de codage
 -----------
 
-Le site [twikito.com](http://twikito.com) est codé à la main dans les règles de l'art, sans CMS et sans plugin jQuery. La plupart des fonctionnalités ont été codées par CSS uniquement.
+Le site [twikito.com](https://twikito.com) est codé à la main dans les règles de l'art, sans CMS et sans plugin jQuery. La plupart des fonctionnalités ont été codées par CSS uniquement.
 
 Le code étant en grande partie expérimentale et démonstrative, pour des questions de maintenabilité, je commente ici les réflexions et choix des techniques employées.
 
@@ -101,7 +101,7 @@ Pour une question d'accessibilité, j'ai laissé la navigation accessible au cla
 
 Une subtilité pour améliorer l'expérience utilisateur : sur mobile, j'ajoute un pseudo-élément au label qui recouvre tout le viewport, sous la navigation, ce qui permet ainsi de simplifier la fermeture de cette navigation.
 
-_[Voir la démo isolée pour plus de détails](http://codepen.io/Twikito/full/zGdqVO)._
+_[Voir la démo isolée pour plus de détails](https://codepen.io/Twikito/full/zGdqVO)._
 
 ### La navigation responsive
 
@@ -121,7 +121,7 @@ _J'ai voulu l'animation du logo par CSS pour plus de fluidité, et pour éviter 
 
 L'animation se fait par CSS uniquement. Cette animation est basée sur la propriété ``stroke-dasharray`` sur chaque ``<path>`` du SVG.
 
-_[Voir la démo isolée pour plus de détails](http://codepen.io/Twikito/pen/GpeJqR)._
+_[Voir la démo isolée pour plus de détails](https://codepen.io/Twikito/pen/GpeJqR)._
 
 ### Les zones de travers
 
@@ -155,7 +155,7 @@ Voici l'usage :
 <foo data-(sePrefix)="(class added when outside screen)" [ data-(sePrefix)-repeat="('true'|'false'|max count)" data-(sePrefix)-offset="(offset in px)" ]></foo>
 ```
 
-_[Voir la démo isolée pour plus de détails](http://codepen.io/Twikito/pen/kXJwKN)._
+_[Voir la démo isolée pour plus de détails](https://codepen.io/Twikito/pen/kXJwKN)._
 
 ### Les panneaux de réalisation
 
@@ -177,13 +177,13 @@ Enfin, lors du focus du lien adjacent, j'applique les styles, ce qui charge l'im
 
 Il semble y avoir un bug sur iOS pour quitter ce focus. Je n'ai pour le moment pas trouvé de solution.
 
-_[Voir la démo isolée pour plus de détails](http://codepen.io/Twikito/full/JYzYKo)._
+_[Voir la démo isolée pour plus de détails](https://codepen.io/Twikito/full/JYzYKo)._
 
 ### Le scroll automatique
 
 Le scroll automatique vers les ancres se fait via JavaScript.
 
-Auparavant, j'utilisais [mon script basé sur jQuery](http://codepen.io/Twikito/full/ejosB), mais je me suis résolu à utiliser [smooth-scroll](https://github.com/cferdinandi/smooth-scroll) de [Chris Ferdinandi](https://github.com/cferdinandi) qui fait ça très bien en vanilla JS.</ins>
+Auparavant, j'utilisais [mon script basé sur jQuery](https://codepen.io/Twikito/full/ejosB), mais je me suis résolu à utiliser [smooth-scroll](https://github.com/cferdinandi/smooth-scroll) de [Chris Ferdinandi](https://github.com/cferdinandi) qui fait ça très bien en vanilla JS.</ins>
 
 ### La page 404
 
