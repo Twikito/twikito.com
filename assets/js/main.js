@@ -105,7 +105,7 @@
 	// Form ajax submit -----------------------------------------------------------------
 	$('#form').on('submit', function(event) {
 		event.preventDefault();
-		$('#form').append("<div class='ans-frame'><div class='ans-bloc'><div class='ans-inner'><svg><use xlink:href='/assets/img/layout/symbol-defs.svg#icon-refresh' /></svg></div></div></div>").find(".ans-frame").fadeIn('fast');
+		$('#form').append("<div class='ans-frame'><div class='ans-bloc'><div class='ans-inner'><svg><use xlink:href='assets/img/layout/symbol-defs.svg#icon-refresh' /></svg></div></div></div>").find(".ans-frame").fadeIn('fast');
 		$.ajax({
 			url     : 'php/send-form.php',
 			type    : 'POST',
