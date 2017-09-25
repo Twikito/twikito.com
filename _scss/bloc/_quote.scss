@@ -13,8 +13,14 @@
 			}
 		}
 		& > span {
+			position: relative;
 			display: inline-block; height: $default-line-height * 1em; overflow: hidden;
 			vertical-align: top;
+			&::after {
+				position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 1;
+				background: linear-gradient(to bottom, $green-block-bg, transparent 15%, transparent 85%, $green-block-bg);
+				content: '';
+			}
 		}
 		& > span > span {
 			display: block;
