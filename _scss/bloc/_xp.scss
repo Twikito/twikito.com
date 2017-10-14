@@ -141,6 +141,10 @@
 					text-align: center; line-height: 1.5;
 				}
 			}
+			@each $customer in ('worders', 'opquast', 'sudweb', 'osteo2ls', 'mondial-assistance', 'shibuya', 'littlerockdiner', 'peep', 'century21', 'cdiscount'){
+				.zoom-#{$customer}-1 { background-image: url(../img/screenshots/#{$customer}-zoom-1.jpg); }
+				.zoom-#{$customer}-2 { background-image: url(../img/screenshots/#{$customer}-zoom-2.jpg); }
+			}
 		}
 	}
 }
