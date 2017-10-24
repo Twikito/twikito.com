@@ -73,22 +73,36 @@
 
 	window.addEventListener('scroll', debounce(scrollEffect, 10), true);
 
-	// Scroll animation -----------------------------------------------------------------
-	function loadScript (url, callback) {
-		var script = document.createElement('script');
-		var loaded = false;
+	// Load script ----------------------------------------------------------------------
+	function loadScript(url, callback) {
+		var script = document.createElement('script'),
+			loaded = false;
 
 		script.setAttribute('src', url);
 		script.onreadystatechange = script.onload = function () {
-		if (!loaded && callback)
-			callback();
-			loaded = true;
-		}
+			if (!loaded && callback) {
+				callback();
+				loaded = true;
+			}
+		};
 
 		document.head.appendChild(script);
 	}
 
-	function initSmoothScroll () {
+	// Lazyloading ----------------------------------------------------------------------
+	function initLazyLoad() {
+		loadScript(
+			'https://cdn.rawgit.com/verlok/lazyload/master/dist/lazyload.min.js',
+			function () {
+				var lazy = new LazyLoad();
+			}
+		);
+	}
+
+	document.addEventListener('DOMContentLoaded', initLazyLoad);
+
+	// Scroll animation -----------------------------------------------------------------
+	function initSmoothScroll() {
 		loadScript(
 			'https://cdn.rawgit.com/cferdinandi/smooth-scroll/master/dist/js/smooth-scroll.min.js',
 			function(){

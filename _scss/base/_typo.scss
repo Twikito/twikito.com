@@ -2,7 +2,7 @@
    Typo classes
    ========================================================================== */
 
-html, input, textarea, select {
+html, input, textarea, select, button {
 	font-family: $default-font-family; line-height: $default-line-height; font-weight: $default-font-weight; color: $default-color;
 }
 
@@ -27,7 +27,7 @@ body {
 	}
 }
 
-h1, h2, h3, h4, h5, h6, .h-style, button {
+h1, h2, h3, h4, h5, h6, .h-style, form button {
 	font-family: $title-font-family; font-style: $title-font-style; font-weight: $title-font-weight; text-transform: uppercase;
 }
 

@@ -105,12 +105,13 @@
 			flex-flow: row nowrap; justify-content: center; align-items: flex-start;
 			figure {
 				flex: 1 1 auto;
+				text-align: center;
 				a, button {
 					position: relative;
 					display: inline-block; height: auto; padding: 0; margin: 0; overflow: hidden;
 					border: none;
 					background: none;
-					text-decoration: none;
+					color: $midgrey; text-decoration: none;
 					cursor: pointer;
 					&::before {
 						position: absolute; top: 0; bottom: 0; left: 0; right: 0;
@@ -138,7 +139,7 @@
 				}
 				figcaption {
 					margin: .5em 0 0;
-					text-align: center; line-height: 1.5;
+					line-height: 1.5;
 				}
 			}
 			@each $customer in ('worders', 'opquast', 'sudweb', 'osteo2ls', 'mondial-assistance', 'shibuya', 'littlerockdiner', 'peep', 'century21', 'cdiscount'){
