@@ -1,23 +1,28 @@
-(function() {
+(function () {
+	'use strict';
 
 	// Scroll Effect --------------------------------------------------------------------
 	// Usage: <foo data-(scrollEffectPrefix)="(class added when outside screen)" [ data-(scrollEffectPrefix)-repeat="('true'|'false'|max count)" data-(scrollEffectPrefix)-offset="(offset in px)" ]></foo>
-	var scrollEffectPrefix = "se";
-	var nodeTab = [].slice.call(document.body.querySelectorAll('[data-' + scrollEffectPrefix + ']'));
+	var scrollEffectPrefix = "se",
+		nodeTab = [].slice.call(document.body.querySelectorAll('[data-' + scrollEffectPrefix + ']'));
 
 	function debounce(func, wait, immediate) {
 		var timeout;
-		return function() {
+		return function () {
 			var context = this,
-				args = arguments;
-			var later = function() {
-				timeout = null;
-				if (!immediate) func.apply(context, args);
-			};
-			var callNow = immediate && !timeout;
+				args = arguments,
+				later = function () {
+					timeout = null;
+					if (!immediate) {
+						func.apply(context, args);
+					}
+				},
+				callNow = immediate && !timeout;
 			clearTimeout(timeout);
 			timeout = setTimeout(later, wait);
-			if (callNow) func.apply(context, args);
+			if (callNow) {
+				func.apply(context, args);
+			}
 		};
 	}
 
@@ -34,7 +39,7 @@
 		var windowScrollTop = window.scrollY,
 			windowInnerHeight = window.innerHeight;
 
-		nodeTab.forEach(function(node) {
+		nodeTab.forEach(function (node) {
 			var config = getConfig(node),
 				scrollClass = config.className,
 				scrollRepeat = config.repeat,
@@ -55,7 +60,7 @@
 			}
 
 			// if ( has the class AND viewport bottom >= top of object + offset AND viewport top <= bottom of object - offset )
-			if (node.classList.contains(scrollClass) && (thisTop + scrollOffset) <= windowInnerHeight && (thisBottom - scrollOffset) >= 0 ) {
+			if (node.classList.contains(scrollClass) && (thisTop + scrollOffset) <= windowInnerHeight && (thisBottom - scrollOffset) >= 0) {
 				node.classList.remove(scrollClass);
 			}
 
@@ -105,8 +110,8 @@
 	function initSmoothScroll() {
 		loadScript(
 			'https://cdn.rawgit.com/cferdinandi/smooth-scroll/master/dist/js/smooth-scroll.min.js',
-			function(){
-				var scroll = new SmoothScroll("a[href^='#']:not([role='button'])",{
+			function () {
+				var scroll = new SmoothScroll("a[href^='#']:not([role='button'])", {
 					speed: 1000,
 					easing: 'easeInOutQuint'
 				});
@@ -117,50 +122,65 @@
 	document.addEventListener('DOMContentLoaded', initSmoothScroll);
 
 	// Form ajax submit -----------------------------------------------------------------
-	$('#form').on('submit', function(event) {
+	$('#form').on('submit', function (event) {
 		event.preventDefault();
 		$('#form').append("<div class='ans-frame'><div class='ans-bloc'><div class='ans-inner'><svg><use xlink:href='assets/img/layout/symbol-defs.svg#icon-refresh' /></svg></div></div></div>").find(".ans-frame").fadeIn('fast');
 		$.ajax({
 			url     : 'php/send-form.php',
 			type    : 'POST',
 			data    : $('form').serializeArray(),
-			success : function(data) {
+			success : function (data) {
 				var ans;
-				switch(data){
-					case "error_name"	:	ans = "Votre nom est incorrect"; break;
-					case "error_email"	:	ans = "Votre adresse mail est vide ou incorrect"; break;
-					case "error_bot"	:	ans = "Erreur bot"; break;
-					case "error_msg"	:	ans = "Veuillez renseigner votre message"; break;
-					case "error_send"	:	ans = "Erreur lors de l'envoi. Veuillez réessayer"; break;
-					case "ok"			:	ans = "Message envoyé. <br>Vous en recevrez une copie."; $("#form")[0].reset(); break;
-					default 			:	ans = "Oups !"; break;
+				switch (data) {
+				case "error_name":
+					ans = "Votre nom est incorrect";
+					break;
+				case "error_email":
+					ans = "Votre adresse mail est vide ou incorrect";
+					break;
+				case "error_bot":
+					ans = "Erreur bot";
+					break;
+				case "error_msg":
+					ans = "Veuillez renseigner votre message";
+					break;
+				case "error_send":
+					ans = "Erreur lors de l'envoi. Veuillez réessayer";
+					break;
+				case "ok":
+					ans = "Message envoyé. <br>Vous en recevrez une copie.";
+					$("#form")[0].reset();
+					break;
+				default:
+					ans = "Oups !";
+					break;
 				}
 				$('#form .ans-inner').html(ans);
 			},
-			error   : function(data) {
-				$('#form .ans-inner').html("Ajax fail: "+data);
+			error   : function (data) {
+				$('#form .ans-inner').html("Ajax fail: " + data);
 			}
 		});
-		setTimeout(function(){ $("#form .ans-frame").fadeOut('fast',function(){ $(this).remove(); }); },5000);
+		setTimeout(function () { $("#form .ans-frame").fadeOut('fast', function () { $(this).remove(); }); }, 5000);
 	});
 
 	// Konami code ----------------------------------------------------------------------
 	function konami(callback) {
-		var keys = [];
-		var konami = '38,38,40,40,37,39,37,39,66,65';
+		var keys = [],
+			konamiString = '38,38,40,40,37,39,37,39,66,65';
 
-		document.addEventListener('keydown', function(e) {
+		document.addEventListener('keydown', function (e) {
 			keys.push(e.keyCode);
-			if (keys.toString().indexOf(konami) >= 0) {
+			if (keys.toString().indexOf(konamiString) >= 0) {
 				keys = [];
 				callback && callback();
 			}
 		});
 	}
-	konami(function() {
+	konami(function () {
 		var stylesheet = document.createElement('link');
-    	stylesheet.setAttribute('rel', 'stylesheet');
-    	stylesheet.setAttribute('href', 'assets/css/konami.css?160803');
+		stylesheet.setAttribute('rel', 'stylesheet');
+		stylesheet.setAttribute('href', 'assets/css/konami.css?160803');
 		document.head.appendChild(stylesheet);
 		document.body.setAttribute("contenteditable", "true");
 	});
