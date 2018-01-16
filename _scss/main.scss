@@ -16,45 +16,55 @@
    ========================================================================== */
 
 // Config
-@import "vendors/ceaser/ceaser";
-@import "scss/config";
-@import "scss/mixins";
+@import
+	"vendors/ceaser/ceaser",
+	"scss/config",
+	"scss/mixins";
 
 // Reset
-@import "vendors/normalize/normalize";
+@import
+	"vendors/normalize/normalize";
 
 // Vendors
-@import "vendors/include-media/include-media";
+@import
+	"vendors/include-media/include-media";
 
 // Base
-@import "base/animations";
-@import "base/init";
-@import "base/scroll-effect";
-@import "base/typo";
+@import
+	"base/animations",
+	"base/init",
+	"base/scroll-effect",
+	"base/fonts",
+	"base/typo";
 
 // Main layout
-@import "layout/layout";
+@import
+	"layout/layout";
 
 // Blocs styles
-@import "bloc/header";
-@import "bloc/navigation";
-@import "bloc/quote";
-@import "bloc/skills";
-@import "bloc/love";
-@import "bloc/xp";
-@import "bloc/talks";
-@import "bloc/social";
-@import "bloc/contact";
-@import "bloc/footer";
+@import
+	"bloc/header",
+	"bloc/navigation",
+	"bloc/quote",
+	"bloc/skills",
+	"bloc/love",
+	"bloc/xp",
+	"bloc/talks",
+	"bloc/social",
+	"bloc/contact",
+	"bloc/footer";
 
 // UI specifics
-@import "ui/navigation";
-@import "ui/logo";
-@import "ui/hr";
-@import "ui/article";
-@import "ui/lightbox";
-@import "ui/form";
-@import "ui/specifics";
-@import "ui/helpers";
+@import
+	"ui/navigation",
+	"ui/logo",
+	"ui/hr",
+	"ui/article",
+	"ui/lightbox",
+	"ui/form",
+	"ui/specifics",
+	"ui/helpers";
 
-@import "print/print";
+// Media print
+@import
+	"print/print";
